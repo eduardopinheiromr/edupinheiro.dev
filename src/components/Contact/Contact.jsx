@@ -67,7 +67,7 @@ export default function Contact() {
         <a className="anchor" id="contato"></a>
         <div className="container min-height-80">
           <h2 className="section-title">Contato</h2>
-          <div className="row my-5">
+          <div className="row my-5 text-md-left text-center">
             <div className="col-lg-6 col-md-12 d-flex flex-column justify-content-around px-5">
               <p>
                 Gostou do que viu? Disponibilizo todos os meus contatos por

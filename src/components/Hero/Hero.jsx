@@ -1,4 +1,3 @@
-import React from "react";
 import { Jumbotron, Button } from "reactstrap";
 import DisplayLottie from "../DisplayLottie";
 import heroAnimation from "../../assets/lottie/targeting-poky-heads.json";
@@ -51,7 +50,7 @@ const HeroContainer = styled.div`
 
 const Hero = () => {
   return (
-    <HeroContainer>
+    <HeroContainer className="fadeIn">
       <Jumbotron>
         <div className="container">
           <div className="row justify-content-center">
@@ -60,7 +59,7 @@ const Hero = () => {
                 <h1 className="display-4">
                   <Greeting />
                 </h1>
-                <p className="lead">
+                <p className="lead text-md-left text-center">
                   Um desenvolvedor Full Stack 🚀 com experiência na criação de
                   aplicativos Web com JavaScript / ReactJS / NodeJS / React
                   Native e algumas outras bibliotecas e estruturas
@@ -68,7 +67,7 @@ const Hero = () => {
                 </p>
                 <hr className="my-4" />
                 <Social />
-                <div className="d-flex mt-3">
+                <div className="d-flex mt-3 justify-content-center justify-content-md-start">
                   <a href="#contato">
                     <Button color="black-glass p-3">Entre em contato</Button>
                   </a>

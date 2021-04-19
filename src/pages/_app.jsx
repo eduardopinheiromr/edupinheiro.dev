@@ -32,7 +32,19 @@ header{
 }
 textarea:focus, input:focus, select:focus{
     outline: none;
-}
+}  
+.fadeIn {
+    animation-name: fadeInAnimation;
+    animation-duration: 1s;
+  }
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 `;
 
 const theme = {

@@ -8,7 +8,7 @@ const Education = () => {
       <div className="container min-height-80">
         <h2 className="section-title">Educação</h2>
         <div className="row">
-          <div className="col-12 col-md-6 d-flex justify-content-start align-items-center flex-column px-5">
+          <div className="col-12 col-lg-6 mb-5 mb-lg-0 d-flex justify-content-start align-items-center flex-column px-5">
             <Link href="https://www.gama.academy/">
               <a target="_blank">
                 <Image src="/images/resilia.webp" width={300} height={50} />
@@ -51,7 +51,7 @@ const Education = () => {
               </ul>
             </div>
           </div>
-          <div className="col-12 col-md-6 d-flex justify-content-start align-items-center flex-column px-5">
+          <div className="col-12 col-lg-6 d-flex justify-content-start align-items-center flex-column px-5">
             <Link href="https://www.gama.academy/">
               <a target="_blank">
                 <Image src="/images/gama.png" width={300} height={75} />

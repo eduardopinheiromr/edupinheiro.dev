@@ -10,7 +10,7 @@ import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer";
 import styled from "styled-components";
 
-const ThemeContainer = styled.body`
+const ThemeContainer = styled.div`
   background: #181d29;
   color: #fff;
   .section-title {

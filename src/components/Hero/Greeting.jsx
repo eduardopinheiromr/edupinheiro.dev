@@ -53,7 +53,7 @@ const GreetingContainer = styled.div`
 `;
 const Greeting = () => {
   return (
-    <GreetingContainer>
+    <GreetingContainer className="text-md-left text-center">
       <span className="text">Oi, eu sou o Edu</span>{" "}
       <span className="wave-emoji">👋</span>
     </GreetingContainer>

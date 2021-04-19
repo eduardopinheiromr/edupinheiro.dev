@@ -1,4 +1,3 @@
-import React from "react";
 import Lottie from "react-lottie";
 
 export default function DisplayLottie({ animationData }) {
@@ -7,9 +6,10 @@ export default function DisplayLottie({ animationData }) {
     autoplay: true,
     animationData: animationData,
   };
+
   return (
     <div>
-      <Lottie options={defaultOptions} />
+      <Lottie isClickToPauseDisabled options={defaultOptions} />
     </div>
   );
 }

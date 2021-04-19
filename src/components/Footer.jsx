@@ -30,13 +30,15 @@ const Footer = () => {
   return (
     <FooterContainer>
       <div className="container">
-        <h2>Muito obrigado!</h2>
+        <h2 className="text-center my-5 font-weight-bold">Muito obrigado!</h2>
         <div className="row">
-          <div className="col-md-6">
-            <div>Espero que tenha gostado!</div>
-          </div>
-          <div className="col-md-6">
-            <div className="my-picture">
+          {/* <div className="col-md-6">
+            <div className="d-flex align-items-center h-100">
+              Espero que tenha gostado!
+            </div>
+          </div> */}
+          <div className="col-md-12">
+            <div className="my-picture mx-auto">
               <Image height={300} width={300} src="/images/edu.png" />
             </div>
           </div>
