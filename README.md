@@ -1,8 +1,7 @@
-O que falta?
+# edupinheiro.dev
 
-Links para redes sociais(Linkedin, Github)
-Melhor organização do conteúdo
-Menu e âncoras para clique
-Widget para entrar em contato via whatsapp
-Currículo
-Limpar projetos que não valem a pena exibir
+Código fonte do meu site pessoal de apresentação.
+
+## Link: https://edupinheiro.dev/
+
+### **OBS.: O site está desatualizado, em breve haverá uma versão 2.0 utilizando melhores práticas e meu próprio backend headless para o formulário**
