@@ -34,6 +34,16 @@ export const GlobalStyle = createGlobalStyle`
     top: -100px;
     visibility: hidden;
   }
+
+  .link {
+    color: #b6b6b6;
+    transition: .3s;
+    &:hover {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+
   .logo {
     font-family: "Trebuchet MS";
   }
