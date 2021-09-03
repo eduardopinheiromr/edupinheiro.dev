@@ -5,10 +5,11 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import styled from "styled-components";
+import Image from "next/image";
 
 const WorkIcon = () => (
   <div className="d-flex justify-content-center align-items-center h-100">
-    <img style={{ width: "60%" }} src="./images/work.svg" />
+    <Image alt="" width={"60%"} src="./images/work.svg" />
   </div>
 );
 

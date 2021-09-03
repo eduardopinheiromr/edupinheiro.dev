@@ -71,7 +71,7 @@ const Hero = () => {
                   <a href="#contato">
                     <Button color="black-glass p-3">Entre em contato</Button>
                   </a>
-                  <Link href="https://drive.google.com/file/d/1Be8ZegSGSk4uo20wqVLWYot-Px3N3_J5/view?usp=sharing">
+                  <Link href="https://drive.google.com/file/d/1EBcUnHGge9SpPGbICDsjVJq3Q6YhyBlY/view?usp=sharing">
                     <a target="_blank">
                       <div className="ml-3">
                         <Button color="black-glass p-3">

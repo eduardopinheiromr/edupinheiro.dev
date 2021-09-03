@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
 
@@ -39,7 +38,12 @@ const Footer = () => {
           </div> */}
           <div className="col-md-12">
             <div className="my-picture mx-auto">
-              <Image height={300} width={300} src="/images/edu.png" />
+              <Image
+                alt="Foto de perfil de Eduardo Pinheiro"
+                height={300}
+                width={300}
+                src="/images/edu.png"
+              />
             </div>
           </div>
         </div>

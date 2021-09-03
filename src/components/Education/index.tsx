@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 const Education = () => {
   return (
     <>
@@ -11,7 +12,12 @@ const Education = () => {
           <div className="col-12 col-lg-6 mb-5 mb-lg-0 d-flex justify-content-start align-items-center flex-column px-5">
             <Link href="https://www.gama.academy/">
               <a target="_blank">
-                <Image src="/images/resilia.webp" width={300} height={50} />
+                <Image
+                  alt="Logo da startup de educação Resilia"
+                  src="/images/resilia.webp"
+                  width={300}
+                  height={50}
+                />
               </a>
             </Link>
             <div className="mt-5">
@@ -23,7 +29,7 @@ const Education = () => {
               <ul>
                 <li>Desenvolvimento front end: HTML5, CSS3, React.js</li>
                 <li>
-                  Desenvolvimento back end: Node.js, Express, Restful API's
+                  Desenvolvimento back end: Node.js, Express, Restful APIs
                 </li>
                 <li>
                   Modelagem e gerenciamento de infraestrutura de dados: SQL
@@ -54,7 +60,12 @@ const Education = () => {
           <div className="col-12 col-lg-6 d-flex justify-content-start align-items-center flex-column px-5">
             <Link href="https://www.gama.academy/">
               <a target="_blank">
-                <Image src="/images/gama.png" width={300} height={75} />
+                <Image
+                  alt="Logo da startup de educação Gama Academy"
+                  src="/images/gama.png"
+                  width={300}
+                  height={75}
+                />
               </a>
             </Link>
             <div className="mt-5">
