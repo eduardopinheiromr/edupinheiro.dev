@@ -1,118 +1,79 @@
-import React from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import styled from "styled-components";
-import Image from "next/image";
+import WorkIcon from "./WorkIcon";
 
-const WorkIcon = () => (
-  <div className="d-flex position-relative justify-content-center align-items-center h-100">
-    <Image alt="" src="/images/work.svg" height={30} width={30} />
-  </div>
-);
-
-const StyledTimeline = styled.div`
-  .vertical-timeline-element-content {
-    box-shadow: 0 3px 25px #000;
-  }
-`;
+import * as S from "./styled";
 
 const Experience = () => {
+  const jobs = [
+    {
+      gradient: "linear-gradient(222deg, rgba(19,15,232,1) 0%, #4497F4 100%)",
+      arrowColor: "#F4C226",
+      date: "Janeiro 2021 - Presente",
+      title: "Front End Engineer",
+      company: "Imobi Places",
+      subtitle: "CSS, React, Next.JS, GIT, Swagger, SCRUM, Material UI",
+    },
+    {
+      gradient:
+        "linear-gradient(222deg, rgba(19,15,232,1) 0%, rgba(246,0,243,1) 100%)",
+      arrowColor: "#A911EF",
+      date: "Outubro 2020 - Presente",
+      title: "Fundador",
+      company: "Nova Hera",
+      subtitle:
+        " HTML, CSS, JavaScript, Wordpress, Bootstrap, React, Next.js, Node JS, MongoDB, Firebase(Firestore DB), OAuth2, Stripe, Serverless CMS, Serverless Functions, SEO, Google Search Console, Analytics, Figma, Adobe XD",
+    },
+    {
+      gradient:
+        "linear-gradient(222deg, rgba(232,15,15,1) 0%, rgba(11,3,56,1) 100%)",
+      arrowColor: "rgba(232,15,15,1)",
+      date: "Agosto 2020 - Presente",
+      title: "Desenvolvedor Front End",
+      company: "Supporta Shop",
+      subtitle: "HTML, CSS, JavaScript, FTP, WordPress, Bootstrap",
+    },
+  ];
   return (
     <>
       <a className="anchor" id="experiencia"></a>
       <div className="container min-height-80 overflow-x-hidden">
         <h2 className="section-title">Experiência profissional</h2>
         <div className="row my-5">
-          <StyledTimeline>
+          <S.Root>
             <VerticalTimeline>
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                contentStyle={{
-                  background:
-                    "linear-gradient(222deg, rgba(19,15,232,1) 0%, #4497F4 100%)",
-                  color: "#fff",
-                }}
-                contentArrowStyle={{
-                  borderRight: "7px solid  #F4C226",
-                }}
-                date="&nbsp;&nbsp;&nbsp;Janeiro 2021 - Presente"
-                iconStyle={{
-                  background:
-                    "linear-gradient(222deg, rgba(19,15,232,1) 0%, #4497F4 100%)",
-                  color: "#fff",
-                }}
-                icon={<WorkIcon />}
-              >
-                <h3 className="vertical-timeline-element-title">
-                  Front End Engineer
-                </h3>
-                <h4 className="vertical-timeline-element-subtitle">
-                  Imobi Places
-                </h4>
-                <p>CSS, React, Next.JS, GIT, Swagger, SCRUM, Material UI</p>
-              </VerticalTimelineElement>
-
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                contentStyle={{
-                  background:
-                    "linear-gradient(222deg, rgba(19,15,232,1) 0%, rgba(246,0,243,1) 100%)",
-                  color: "#fff",
-                }}
-                contentArrowStyle={{
-                  borderRight: "7px solid  #A911EF",
-                }}
-                date="&nbsp;&nbsp;&nbsp;Outubro 2020 - Presente"
-                iconStyle={{
-                  background:
-                    "linear-gradient(222deg, rgba(19,15,232,1) 0%, rgba(246,0,243,1) 100%)",
-                  color: "#fff",
-                }}
-                icon={<WorkIcon />}
-              >
-                <h3 className="vertical-timeline-element-title">Fundador</h3>
-                <h4 className="vertical-timeline-element-subtitle">
-                  Nova Hera
-                </h4>
-                <p>
-                  HTML, CSS, JavaScript, Wordpress, Bootstrap, React, Next.js,
-                  Node JS, MongoDB, Firebase(Firestore DB), OAuth2, Stripe,
-                  Serverless CMS, Serverless Functions, SEO, Google Search
-                  Console, Analytics, Figma, Adobe XD
-                </p>
-              </VerticalTimelineElement>
-
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                contentStyle={{
-                  background:
-                    "linear-gradient(222deg, rgba(232,15,15,1) 0%, rgba(11,3,56,1) 100%)",
-                  color: "#fff",
-                }}
-                contentArrowStyle={{
-                  borderRight: "7px solid  rgba(232,15,15,1)",
-                }}
-                date="Agosto 2020 - Presente&nbsp;&nbsp;&nbsp;"
-                iconStyle={{
-                  background:
-                    "linear-gradient(222deg, rgba(232,15,15,1) 0%, rgba(11,3,56,1) 100%)",
-                  color: "#fff",
-                }}
-                icon={<WorkIcon />}
-              >
-                <h3 className="vertical-timeline-element-title">
-                  Desenvolvedor Front End
-                </h3>
-                <h4 className="vertical-timeline-element-subtitle">
-                  Supporta Shop
-                </h4>
-                <p>HTML, CSS, JavaScript, FTP, WordPress, Bootstrap</p>
-              </VerticalTimelineElement>
+              {jobs.map((job, key) => (
+                <VerticalTimelineElement
+                  key={key}
+                  className="vertical-timeline-element--work"
+                  contentStyle={{
+                    background: job.gradient,
+                    color: "#fff",
+                  }}
+                  contentArrowStyle={{
+                    borderRight: "7px solid " + job.arrowColor,
+                  }}
+                  date={job.date}
+                  iconStyle={{
+                    background: job.gradient,
+                    color: "#fff",
+                  }}
+                  icon={<WorkIcon />}
+                >
+                  <h3 className="vertical-timeline-element-title">
+                    {job.title}
+                  </h3>
+                  <h4 className="vertical-timeline-element-subtitle">
+                    {job.company}
+                  </h4>
+                  <p>{job.subtitle}</p>
+                </VerticalTimelineElement>
+              ))}
             </VerticalTimeline>
-          </StyledTimeline>
+          </S.Root>
         </div>
       </div>
     </>

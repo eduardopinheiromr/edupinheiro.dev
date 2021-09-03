@@ -17,10 +17,10 @@ const MySkills = () => {
       <a className="anchor" id="habilidades"></a>
       <div className="container min-height-80">
         <div className="row">
-          <div className="col-lg-6 col-md-12ç developer">
+          <div className="col-lg-6 col-md-12 developer">
             <DisplayLottie animationData={developing} />
           </div>
-          <div className="col-lg-6 col-md-12ç">
+          <div className="col-lg-6 col-md-12">
             <h2 className="section-title">O que eu faço</h2>
             <p>
               Atualmente empreendo na carreira de TI, focado em dominar o

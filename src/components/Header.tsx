@@ -8,10 +8,39 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+
+const navItems = [
+  {
+    id: "habilidades",
+    label: "Habilidades",
+  },
+  {
+    id: "historia",
+    label: "Minha história",
+  },
+  {
+    id: "experiencia",
+    label: "Experiência",
+  },
+  {
+    id: "educacao",
+    label: "Educação",
+  },
+  {
+    id: "projetos",
+    label: "Projetos",
+  },
+  {
+    id: "contato",
+    label: "Contato",
+  },
+];
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
   return (
     <header>
       <Navbar dark className="bg-black" expand="lg">
@@ -22,24 +51,11 @@ const Header = () => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="#habilidades">Habilidades</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#historia">Minha história</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#experiencia">Experiência</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#educacao">Educação</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#projetos">Projetos</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#contato">Contato</NavLink>
-              </NavItem>
+              {navItems.map((item, key) => (
+                <NavItem key={key}>
+                  <NavLink href={"#" + item.id}>{item.label}</NavLink>
+                </NavItem>
+              ))}
             </Nav>
           </Collapse>
         </div>

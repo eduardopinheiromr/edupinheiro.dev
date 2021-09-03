@@ -9,7 +9,7 @@ import {
   Timeline,
 } from "components";
 
-export default function index() {
+export default function HomePage() {
   return (
     <Layout>
       <Hero />
