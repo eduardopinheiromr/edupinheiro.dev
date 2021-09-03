@@ -51,7 +51,7 @@ export default function Contact() {
   const [formData, setFormData] = useState(initialState);
   const [toggleModal, setToggleModal] = useState(false);
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await axios.post("https://api.web3forms.com/submit", {
       ...formData,
@@ -109,7 +109,7 @@ export default function Contact() {
                   <input
                     name="nome"
                     value={formData.nome}
-                    onChange={event =>
+                    onChange={(event) =>
                       setFormData({ ...formData, nome: event.target.value })
                     }
                     type="text"
@@ -118,7 +118,7 @@ export default function Contact() {
                   <input
                     name="email"
                     value={formData.email}
-                    onChange={event =>
+                    onChange={(event) =>
                       setFormData({ ...formData, email: event.target.value })
                     }
                     type="text"
@@ -131,7 +131,7 @@ export default function Contact() {
                     <select
                       name="assunto"
                       value={formData.assunto}
-                      onChange={event =>
+                      onChange={(event) =>
                         setFormData({
                           ...formData,
                           assunto: event.target.value,
@@ -161,7 +161,7 @@ export default function Contact() {
                       id="mensagem"
                       name="mensagem"
                       value={formData.mensagem}
-                      onChange={event =>
+                      onChange={(event) =>
                         setFormData({
                           ...formData,
                           mensagem: event.target.value,
