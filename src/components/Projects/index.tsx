@@ -36,7 +36,7 @@ const Projects = () => {
     },
     {
       name: "CR Comércio",
-      link: "",
+      link: "https://www.crtecnologias.com.br/",
       technologies:
         "CSS, JavaScript, React, Next.js, Serverless CMS, Serverless Functions, SEO, Google Search Console, Analytics, Figma",
       about:

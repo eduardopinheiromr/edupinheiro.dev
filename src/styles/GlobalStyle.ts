@@ -7,17 +7,28 @@ export const theme = {
 };
 
 export const GlobalStyle = createGlobalStyle`
-  background: #181d29;
-  color: #fff;
+
+  * {
+  box-sizing: border-box;
+  }
+  
+  html,
   body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-  }
-  html {
     scroll-behavior: smooth;
+    background: #181d29;
+    color: #fff;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
   .anchor {
     display: block;
     position: relative;
