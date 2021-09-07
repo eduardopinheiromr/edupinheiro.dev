@@ -1,13 +1,4 @@
 import { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-} from "reactstrap";
 
 const navItems = [
   {
@@ -43,23 +34,39 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar dark className="bg-black" expand="lg">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <NavbarBrand href="#">
+          <a className="navbar-brand" href="#">
             <span className="logo">&lt; EduPinheiro /&gt;</span>
-          </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="ms-auto" navbar>
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
               {navItems.map((item, key) => (
-                <NavItem key={key}>
-                  <NavLink href={"#" + item.id}>{item.label}</NavLink>
-                </NavItem>
+                <li className="nav-item" key={key}>
+                  <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href={"#" + item.id}
+                  >
+                    {item.label}
+                  </a>
+                </li>
               ))}
-            </Nav>
-          </Collapse>
+            </ul>
+          </div>
         </div>
-      </Navbar>
+      </nav>
     </header>
   );
 };

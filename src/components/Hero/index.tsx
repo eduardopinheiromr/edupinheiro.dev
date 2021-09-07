@@ -1,4 +1,3 @@
-import { Jumbotron, Button } from "reactstrap";
 import DisplayLottie from "../DisplayLottie";
 import heroAnimation from "../../assets/lottie/targeting-poky-heads.json";
 import Greeting from "./Greeting";
@@ -10,7 +9,7 @@ import * as S from "./styled";
 const Hero = () => {
   return (
     <S.Hero className="fadeIn">
-      <Jumbotron>
+      <div>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12 col-lg-6">
@@ -28,14 +27,16 @@ const Hero = () => {
                 <Social />
                 <div className="d-flex mt-3 justify-content-center justify-content-md-start">
                   <a href="#contato">
-                    <Button color="black-glass p-3">Entre em contato</Button>
+                    <button className="btn btn-black-glass p-3">
+                      Entre em contato
+                    </button>
                   </a>
                   <Link href="https://drive.google.com/file/d/1EBcUnHGge9SpPGbICDsjVJq3Q6YhyBlY/view?usp=sharing">
                     <a target="_blank">
                       <div className="ms-3">
-                        <Button color="black-glass p-3">
+                        <button className="btn btn-black-glass p-3">
                           Veja meu currículo
-                        </Button>
+                        </button>
                       </div>
                     </a>
                   </Link>
@@ -49,7 +50,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </Jumbotron>
+      </div>
     </S.Hero>
   );
 };

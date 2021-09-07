@@ -1,4 +1,3 @@
-import React from "react";
 import { skills, softwareSkills } from "./skills";
 import DisplayLottie from "../DisplayLottie";
 import developing from "../../assets/lottie/developing.json";
