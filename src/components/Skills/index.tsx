@@ -1,17 +1,11 @@
 import React from "react";
-import softwareSkills from "./skills";
+import { skills, softwareSkills } from "./skills";
 import DisplayLottie from "../DisplayLottie";
 import developing from "../../assets/lottie/developing.json";
 
 import * as S from "./styled";
 
 const MySkills = () => {
-  const skills = [
-    "Otimizações de SEO",
-    "Criação e consumo de APIs REST/GraphQL",
-    "Criação de websites de alta performance e 100% responsivos",
-  ];
-
   return (
     <S.Root>
       <a className="anchor" id="habilidades"></a>
@@ -37,7 +31,7 @@ const MySkills = () => {
                 </li>
               ))}
             </ul>
-            <ul className="mt-3 pl-0">
+            <ul className="mt-3 ps-0">
               {skills.map((skill, key) => (
                 <li key={key}>
                   <div>

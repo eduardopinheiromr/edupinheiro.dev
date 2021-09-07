@@ -7,7 +7,7 @@ export default function Timeline() {
       <a className="anchor" id="historia"></a>
       <div className="container min-height-80">
         <h2 className="section-title">Minha história</h2>
-        <div className="row text-md-left text-center">
+        <div className="row text-md-start text-center">
           <div className="col-lg-6 col-md-12 my-5">
             <p>
               Tive muitos interesses profissionais antes de encontrar meu lugar

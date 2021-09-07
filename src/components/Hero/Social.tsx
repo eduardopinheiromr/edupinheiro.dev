@@ -1,43 +1,11 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import styled from "styled-components";
 
-const SocialContainer = styled.div`
-  width: 180px;
-  margin: 0 auto;
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-
-    a {
-      transition: 0.3s;
-    }
-    a div {
-      position: absolute;
-      height: 50px;
-      width: 50px;
-      border-radius: 100%;
-      top: 0;
-      z-index: 100;
-      box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.7);
-    }
-    img {
-    }
-    a:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  @media (min-width: 766px) {
-    margin: 0;
-  }
-`;
+import * as S from "./styled";
 
 const Social = () => {
   return (
-    <SocialContainer>
+    <S.Social>
       <div className="buttons">
         <Link href="https://github.com/eduardopinheiromr">
           <a target="_blank">
@@ -65,7 +33,7 @@ const Social = () => {
           </a>
         </Link>
       </div>
-    </SocialContainer>
+    </S.Social>
   );
 };
 

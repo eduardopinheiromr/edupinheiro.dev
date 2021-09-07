@@ -1,6 +1,33 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+const resilia = {
+  description:
+    "Formação intensiva de mais de 450 horas de Desenvolvimento Web e habilidades soft, e mentoria com empresas da área.",
+  hardskills: [
+    "Desenvolvimento front end: HTML5, CSS3, React.js",
+    "Desenvolvimento back end: Node.js, Express, Restful APIs",
+    "Modelagem e gerenciamento de infraestrutura de dados: SQL(MySQL) e No SQL (MongoDB)",
+    "Engenharia de software: versionamento de código, metodologias ágeis e padrões de projeto",
+  ],
+  softskills: [
+    "Desenvolvimento de produto: ferramentas de criatividade, mapa de empatia, design thinking, design sprint",
+    "Desenvolvimento pessoal: Gestão de tempo, produtividade, relacionamento interpessoal, trabalho em equipe e comunicação",
+    "Foco em carreira: visão de negócios, postura profissional.",
+  ],
+};
+
+const gama = {
+  description:
+    "Curso extremamente acelerado que prepara os alunos para ambientes dinâmicos de startups.",
+  skills: [
+    "Landing pages, sites institucionais, projetos, transformação digital em ONGs, colaboração.",
+    "Desenvolvi landing pages utilizando o task runner Gulp e pré processador de CSS(SASS).",
+    "Fiz deploy de arquivos via Git e FTP(Netlify e Filezilla).",
+    "Aprofundei conhecimentos em Bootstrap e JavaScript.",
+    "Experiência altamente imersiva em trabalho em equipe, desenvolvimento colaborativo e agilidade nas entregas.",
+  ],
+};
 
 const Education = () => {
   return (
@@ -21,42 +48,23 @@ const Education = () => {
               </a>
             </Link>
             <div className="mt-5">
-              <p>
-                Formação intensiva de mais de 450 horas de Desenvolvimento Web e
-                habilidades soft, e mentoria com empresas da área.
-              </p>
-              <p>Competências hard trabalhadas</p>
+              <p>{resilia.description}</p>
+              <h5>Hard skills trabalhadas:</h5>
               <ul>
-                <li>Desenvolvimento front end: HTML5, CSS3, React.js</li>
-                <li>
-                  Desenvolvimento back end: Node.js, Express, Restful APIs
-                </li>
-                <li>
-                  Modelagem e gerenciamento de infraestrutura de dados: SQL
-                  (MySQL) e No SQL (MongoDB)
-                </li>
-                <li>
-                  Engenharia de software: versionamento de código, metodologias
-                  ágeis e padrões de projeto
-                </li>
+                {resilia.hardskills.map((skill, key) => (
+                  <li key={key}>{skill}</li>
+                ))}
               </ul>
 
-              <p>Competências soft trabalhadas</p>
+              <h5>Soft skills trabalhadas:</h5>
               <ul>
-                <li>
-                  Desenvolvimento de produto: ferramentas de criatividade, mapa
-                  de empatia, design thinking, design sprint
-                </li>
-                <li>
-                  Desenvolvimento pessoal: Gestão de tempo, produtividade,
-                  relacionamento interpessoal, trabalho em equipe e comunicação
-                </li>
-                <li>
-                  Foco em carreira: visão de negócios, postura profissional.
-                </li>
+                {resilia.softskills.map((skill, key) => (
+                  <li key={key}>{skill}</li>
+                ))}
               </ul>
             </div>
           </div>
+
           <div className="col-12 col-lg-6 d-flex justify-content-start align-items-center flex-column px-5">
             <Link href="https://www.gama.academy/">
               <a target="_blank">
@@ -68,24 +76,16 @@ const Education = () => {
                 />
               </a>
             </Link>
-            <div className="mt-5">
-              <p>
-                Landing pages, sites institucionais, projetos, transformação
-                digital em ONGs, colaboração.
-              </p>
-              <p>
-                Desenvolvi landing pages utilizando o task runner Gulp e pré
-                processador de CSS(SASS).
-              </p>
-
-              <p> Fiz deploy de arquivos via Git e FTP(Netlify e Filezilla).</p>
-
-              <p> Aprofundei conhecimentos em Bootstrap e JavaScript.</p>
-
-              <p>
-                Experiência altamente imersiva em trabalho em equipe,
-                desenvolvimento colaborativo e agilidade nas entregas.
-              </p>
+            <div className="mt-4">
+              <p>{gama.description}</p>
+              <h5>Skills trabalhadas</h5>
+              <ul>
+                {gama.skills.map((skill, key) => (
+                  <li key={key}>
+                    <p>{skill}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

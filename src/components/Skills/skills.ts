@@ -1,4 +1,10 @@
-const softwareSkills = [
+export const skills = [
+  "Otimizações de SEO",
+  "Criação e consumo de APIs REST/GraphQL",
+  "Criação de websites de alta performance e 100% responsivos",
+];
+
+export const softwareSkills = [
   {
     skillName: "HTML5",
     fontAwesomeClassname: "fab fa-html5",
@@ -36,5 +42,3 @@ const softwareSkills = [
     fontAwesomeClassname: "fas fa-database",
   },
 ];
-
-export default softwareSkills;

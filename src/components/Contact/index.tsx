@@ -1,44 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
-import styled from "styled-components";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { submitContact } from "services/submitContact";
 
-const ContactContainer = styled.div`
-  .contact-form {
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
-    backdrop-filter: blur(6.5px);
-    -webkit-backdrop-filter: blur(6.5px);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-
-  input,
-  select {
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
-    backdrop-filter: blur(6.5px);
-    -webkit-backdrop-filter: blur(6.5px);
-    border-radius: 10px;
-    border: none;
-    color: #fff;
-    margin-bottom: 15px;
-    padding: 10px 15px;
-  }
-  label {
-    margin: 10px;
-    margin-top: 0;
-  }
-  .submit {
-    transition: 0.3s;
-  }
-  .submit:hover {
-    transform: scale(1.02);
-    font-weight: bold;
-  }
-`;
+import * as S from "./styled";
 
 export default function Contact() {
   const initialState = {
@@ -53,9 +17,8 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.post("https://api.web3forms.com/submit", {
-      ...formData,
-    });
+    const response = await submitContact(formData);
+
     if (response.status === 200) {
       setToggleModal(true);
       setFormData(initialState);
@@ -63,11 +26,11 @@ export default function Contact() {
   };
   return (
     <>
-      <ContactContainer>
+      <S.Root>
         <a className="anchor" id="contato"></a>
         <div className="container min-height-80">
           <h2 className="section-title">Contato</h2>
-          <div className="row my-5 text-md-left text-center">
+          <div className="row my-5 text-md-start text-center">
             <div className="col-lg-6 col-md-12 d-flex flex-column justify-content-around px-5">
               <p>
                 Gostou do que viu? Disponibilizo todos os meus contatos por
@@ -177,7 +140,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </ContactContainer>
+      </S.Root>
       <div>
         <Modal isOpen={toggleModal} toggle={() => setToggleModal(!toggleModal)}>
           <ModalHeader

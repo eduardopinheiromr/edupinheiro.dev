@@ -4,53 +4,12 @@ import heroAnimation from "../../assets/lottie/targeting-poky-heads.json";
 import Greeting from "./Greeting";
 import Social from "./Social";
 import Link from "next/link";
-import styled from "styled-components";
 
-const HeroContainer = styled.div`
-  overflow-x: hidden;
-  .jumbotron {
-    background: #181d29;
-    color: #fff;
-    min-height: 80vh;
-  }
-  .btn-black-glass:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 10px 30px 0px rgba(0, 0, 255, 0.5);
-    background: rgba(0, 0, 55, 0.5);
-  }
-  .btn-black-glass {
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
-    backdrop-filter: blur(6.5px);
-    -webkit-backdrop-filter: blur(6.5px);
-    border-radius: 10px;
-    color: #fff;
-    transition: 0.3s;
-  }
-  .container {
-    margin-top: 3vw;
-  }
-  .lead {
-    font-size: 22px;
-  }
-  @media (min-width: 568px) {
-    .lead {
-      font-size: 28px;
-    }
-  }
-  .developer {
-    margin-top: 28px;
-  }
-  @media (min-width: 768px) {
-    .developer {
-      margin-top: 0;
-    }
-  }
-`;
+import * as S from "./styled";
 
 const Hero = () => {
   return (
-    <HeroContainer className="fadeIn">
+    <S.Hero className="fadeIn">
       <Jumbotron>
         <div className="container">
           <div className="row justify-content-center">
@@ -59,7 +18,7 @@ const Hero = () => {
                 <h1 className="display-4">
                   <Greeting />
                 </h1>
-                <p className="lead text-md-left text-center">
+                <p className="lead text-md-start text-center">
                   Um desenvolvedor Full Stack 🚀 com experiência na criação de
                   aplicativos Web com JavaScript / ReactJS / NodeJS / React
                   Native e algumas outras bibliotecas e estruturas
@@ -73,7 +32,7 @@ const Hero = () => {
                   </a>
                   <Link href="https://drive.google.com/file/d/1EBcUnHGge9SpPGbICDsjVJq3Q6YhyBlY/view?usp=sharing">
                     <a target="_blank">
-                      <div className="ml-3">
+                      <div className="ms-3">
                         <Button color="black-glass p-3">
                           Veja meu currículo
                         </Button>
@@ -91,7 +50,7 @@ const Hero = () => {
           </div>
         </div>
       </Jumbotron>
-    </HeroContainer>
+    </S.Hero>
   );
 };
 

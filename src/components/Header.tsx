@@ -50,7 +50,7 @@ const Header = () => {
           </NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ms-auto" navbar>
               {navItems.map((item, key) => (
                 <NavItem key={key}>
                   <NavLink href={"#" + item.id}>{item.label}</NavLink>
