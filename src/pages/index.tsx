@@ -5,7 +5,7 @@ import {
   Education,
   Experience,
   Layout,
-  Timeline,
+  AboutMe,
   Projects,
 } from "components";
 import { PageTags } from "components/PageTags";
@@ -20,7 +20,7 @@ export default function HomePage() {
       <Layout>
         <Hero />
         <Skills />
-        <Timeline />
+        <AboutMe />
         <Experience />
         <Education />
         <Projects />

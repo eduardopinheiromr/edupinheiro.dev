@@ -2,7 +2,6 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, theme } from "styles/GlobalStyle";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
 import "@styles/custom-bootstrap.scss";
 
 export default function App({ Component, pageProps }: AppProps) {

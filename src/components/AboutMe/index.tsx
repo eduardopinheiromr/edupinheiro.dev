@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Timeline() {
+export default function AboutMe() {
   return (
     <>
       <a className="anchor" id="historia"></a>
