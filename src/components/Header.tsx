@@ -33,8 +33,8 @@ const Header = () => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <header>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <header className="shadow-xl">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-xl">
         <div className="container">
           <a className="navbar-brand" href="#">
             <span className="logo">&lt; EduPinheiro /&gt;</span>

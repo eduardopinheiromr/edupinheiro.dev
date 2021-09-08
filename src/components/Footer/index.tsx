@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { imgBase64 } from "utils/imgBase64";
 
 import * as S from "./styled";
 
@@ -11,6 +12,8 @@ const Footer = () => {
           <div className="col-md-12">
             <div className="my-picture mx-auto">
               <Image
+                placeholder="blur"
+                blurDataURL={imgBase64}
                 alt="Foto de perfil de Eduardo Pinheiro"
                 height={300}
                 width={300}

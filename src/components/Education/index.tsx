@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { imgBase64 } from "utils/imgBase64";
 
 const resilia = {
   description:
@@ -44,6 +45,8 @@ const Education = () => {
                   src="/images/resilia.webp"
                   width={300}
                   height={50}
+                  placeholder="blur"
+                  blurDataURL={imgBase64}
                 />
               </a>
             </Link>
@@ -73,6 +76,8 @@ const Education = () => {
                   src="/images/gama.png"
                   width={300}
                   height={75}
+                  placeholder="blur"
+                  blurDataURL={imgBase64}
                 />
               </a>
             </Link>

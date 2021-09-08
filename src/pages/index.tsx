@@ -1,12 +1,12 @@
 import {
+  Hero,
+  Skills,
   Contact,
   Education,
   Experience,
-  Hero,
   Layout,
-  Projects,
-  Skills,
   Timeline,
+  Projects,
 } from "components";
 import { PageTags } from "components/PageTags";
 

@@ -44,6 +44,10 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .shadow-xl {
+    box-shadow: 0 1rem 1rem rgb(0 0 0 / 18%);
+  }
+
   .logo {
     font-family: "Trebuchet MS";
   }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { imgBase64 } from "utils/imgBase64";
 
 const WorkIcon = () => (
   <div className="d-flex position-relative justify-content-center align-items-center h-100">

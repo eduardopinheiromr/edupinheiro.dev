@@ -1,8 +1,7 @@
 import { skills, softwareSkills } from "./skills";
-import DisplayLottie from "../DisplayLottie";
-import developing from "../../assets/lottie/developing.json";
-
+import Image from "next/image";
 import * as S from "./styled";
+import { imgBase64 } from "utils/imgBase64";
 
 const MySkills = () => {
   return (
@@ -11,7 +10,14 @@ const MySkills = () => {
       <div className="container min-height-80">
         <div className="row">
           <div className="col-lg-6 col-md-12 developer">
-            <DisplayLottie animationData={developing} />
+            <Image
+              placeholder="blur"
+              blurDataURL={imgBase64}
+              alt="Animação de homem flutuando com seu notebook em contexto de programação"
+              src="/developer.svg"
+              height={500}
+              width={500}
+            />
           </div>
           <div className="col-lg-6 col-md-12">
             <h2 className="section-title">O que eu faço</h2>

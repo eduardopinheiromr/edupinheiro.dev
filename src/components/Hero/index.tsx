@@ -1,10 +1,10 @@
-import DisplayLottie from "../DisplayLottie";
-import heroAnimation from "../../assets/lottie/targeting-poky-heads.json";
+import Image from "next/image";
 import Greeting from "./Greeting";
 import Social from "./Social";
 import Link from "next/link";
 
 import * as S from "./styled";
+import { imgBase64 } from "utils/imgBase64";
 
 const Hero = () => {
   return (
@@ -45,7 +45,14 @@ const Hero = () => {
             </div>
             <div className="col-md-12 col-lg-6 d-flex align-items-center developer">
               <div>
-                <DisplayLottie animationData={heroAnimation} />
+                <Image
+                  placeholder="blur"
+                  blurDataURL={imgBase64}
+                  alt="Animação de homem flutuando com seu notebook em contexto de programação"
+                  src="/hero.svg"
+                  height={500}
+                  width={500}
+                />
               </div>
             </div>
           </div>
