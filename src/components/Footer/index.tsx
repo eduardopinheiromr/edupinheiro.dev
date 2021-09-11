@@ -1,4 +1,5 @@
 import Image from "next/image";
+import avatarImage from "@assets/images/edu.png";
 
 import * as S from "./styled";
 
@@ -11,10 +12,11 @@ const Footer = () => {
           <div className="col-md-12">
             <div className="my-picture mx-auto">
               <Image
+                placeholder="blur"
                 alt="Foto de perfil de Eduardo Pinheiro"
                 height={300}
                 width={300}
-                src="/images/edu.png"
+                src={avatarImage}
               />
             </div>
           </div>

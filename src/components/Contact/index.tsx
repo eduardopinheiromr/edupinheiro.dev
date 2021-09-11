@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { submitContact } from "services/submitContact";
+import { submitContact } from "@services/submitContact";
 
 import * as S from "./styled";
 
@@ -142,23 +141,36 @@ export default function Contact() {
         </div>
       </S.Root>
       <div>
-        <Modal isOpen={toggleModal} toggle={() => setToggleModal(!toggleModal)}>
-          <ModalHeader
-            toggle={() => setToggleModal(!toggleModal)}
-            style={{ background: "#191E29" }}
-          >
-            Modal title
-          </ModalHeader>
-          <ModalBody style={{ background: "#191E29" }}>
-            Muito obrigado pelo contato! Recebi seu email e em breve retornarei
-            :)
-          </ModalBody>
-          <ModalFooter style={{ background: "#191E29" }}>
-            <Button color="dark" onClick={() => setToggleModal(!toggleModal)}>
-              Fechar
-            </Button>
-          </ModalFooter>
-        </Modal>
+        <div className="modal" tabIndex={-1}>
+          <div className="modal-dialog" style={{ background: "#191E29" }}>
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Modal title</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                <p>
+                  Muito obrigado pelo contato! Recebi seu email e em breve
+                  retornarei :)
+                </p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-dark"
+                  data-bs-dismiss="modal"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>{" "}
       </div>
     </>
   );

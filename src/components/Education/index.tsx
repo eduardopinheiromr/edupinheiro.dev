@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import gamaLogo from "@assets/images/gama.png";
+import resiliaLogo from "@assets/images/resilia.webp";
 
 const resilia = {
   description:
@@ -41,9 +43,10 @@ const Education = () => {
               <a target="_blank">
                 <Image
                   alt="Logo da startup de educação Resilia"
-                  src="/images/resilia.webp"
+                  src={resiliaLogo}
                   width={300}
                   height={50}
+                  placeholder="blur"
                 />
               </a>
             </Link>
@@ -70,9 +73,10 @@ const Education = () => {
               <a target="_blank">
                 <Image
                   alt="Logo da startup de educação Gama Academy"
-                  src="/images/gama.png"
+                  src={gamaLogo}
                   width={300}
                   height={75}
+                  placeholder="blur"
                 />
               </a>
             </Link>

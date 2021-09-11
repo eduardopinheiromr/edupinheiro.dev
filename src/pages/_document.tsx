@@ -39,11 +39,7 @@ export default class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.13.0/css/all.min.css"
-          />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=optional"
           />
         </Head>
         <body>

@@ -1,15 +1,14 @@
 import {
+  Hero,
+  Skills,
   Contact,
   Education,
   Experience,
-  Hero,
   Layout,
+  AboutMe,
   Projects,
-  Skills,
-  Timeline,
-} from "components";
-import { PageTags } from "components/PageTags";
-
+  PageTags,
+} from "@components";
 export default function HomePage() {
   return (
     <>
@@ -20,7 +19,7 @@ export default function HomePage() {
       <Layout>
         <Hero />
         <Skills />
-        <Timeline />
+        <AboutMe />
         <Experience />
         <Education />
         <Projects />

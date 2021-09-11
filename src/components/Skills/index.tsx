@@ -1,7 +1,9 @@
-import React from "react";
+import Image from "next/image";
+
 import { skills, softwareSkills } from "./skills";
-import DisplayLottie from "../DisplayLottie";
-import developing from "../../assets/lottie/developing.json";
+import { imgBase64 } from "@utils/imgBase64";
+
+import developerImage from "@assets/images/developer.svg";
 
 import * as S from "./styled";
 
@@ -11,8 +13,15 @@ const MySkills = () => {
       <a className="anchor" id="habilidades"></a>
       <div className="container min-height-80">
         <div className="row">
-          <div className="col-lg-6 col-md-12 developer">
-            <DisplayLottie animationData={developing} />
+          <div className="col-lg-6 col-md-12 d-flex justify-content-center items-center developer">
+            <Image
+              placeholder="blur"
+              blurDataURL={imgBase64}
+              alt="Animação de homem flutuando com seu notebook em contexto de programação"
+              src={developerImage}
+              height={500}
+              width={500}
+            />
           </div>
           <div className="col-lg-6 col-md-12">
             <h2 className="section-title">O que eu faço</h2>

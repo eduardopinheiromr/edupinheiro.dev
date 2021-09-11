@@ -1,16 +1,18 @@
-import { Jumbotron, Button } from "reactstrap";
-import DisplayLottie from "../DisplayLottie";
-import heroAnimation from "../../assets/lottie/targeting-poky-heads.json";
+import Link from "next/link";
+import Image from "next/image";
+
 import Greeting from "./Greeting";
 import Social from "./Social";
-import Link from "next/link";
+
+import { imgBase64 } from "@utils/imgBase64";
+import heroImage from "@assets/images/hero.svg";
 
 import * as S from "./styled";
 
 const Hero = () => {
   return (
     <S.Hero className="fadeIn">
-      <Jumbotron>
+      <div>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12 col-lg-6">
@@ -28,28 +30,37 @@ const Hero = () => {
                 <Social />
                 <div className="d-flex mt-3 justify-content-center justify-content-md-start">
                   <a href="#contato">
-                    <Button color="black-glass p-3">Entre em contato</Button>
+                    <button className="btn btn-black-glass p-3">
+                      Entre em contato
+                    </button>
                   </a>
-                  <Link href="https://drive.google.com/file/d/1EBcUnHGge9SpPGbICDsjVJq3Q6YhyBlY/view?usp=sharing">
+                  <Link href="/curriculo.pdf">
                     <a target="_blank">
                       <div className="ms-3">
-                        <Button color="black-glass p-3">
+                        <button className="btn btn-black-glass p-3">
                           Veja meu currículo
-                        </Button>
+                        </button>
                       </div>
                     </a>
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="col-md-12 col-lg-6 d-flex align-items-center developer">
+            <div className="col-md-12 col-lg-6 d-flex align-items-center justify-content-center developer">
               <div>
-                <DisplayLottie animationData={heroAnimation} />
+                <Image
+                  placeholder="blur"
+                  blurDataURL={imgBase64}
+                  alt="Animação de homem flutuando com seu notebook em contexto de programação"
+                  src={heroImage}
+                  height={500}
+                  width={500}
+                />
               </div>
             </div>
           </div>
         </div>
-      </Jumbotron>
+      </div>
     </S.Hero>
   );
 };

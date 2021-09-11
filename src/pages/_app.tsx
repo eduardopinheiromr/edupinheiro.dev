@@ -1,10 +1,10 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyle, theme } from "styles/GlobalStyle";
+import { GlobalStyle, theme } from "@styles/GlobalStyle";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "@styles/custom-bootstrap.scss";
+import "@styles/fontawesome.scss";
+import "@styles/vertical-timeline.scss";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
