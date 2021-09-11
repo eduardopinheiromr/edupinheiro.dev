@@ -2,27 +2,31 @@ import { useState } from "react";
 import { submitContact } from "@services/submitContact";
 
 import * as S from "./styled";
+import ContactModal from "./ContactModal";
+
+const initialState = {
+  name: "",
+  subject: "",
+  email: "",
+  message: "",
+};
 
 export default function Contact() {
-  const initialState = {
-    apikey: "c83e68d3-8fee-495c-bc7a-526678bf0be7",
-    nome: "",
-    assunto: "",
-    email: "",
-    mensagem: "",
-  };
   const [formData, setFormData] = useState(initialState);
-  const [toggleModal, setToggleModal] = useState(false);
+  const [modal, toggleModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     const response = await submitContact(formData);
-
+    setLoading(false);
     if (response.status === 200) {
-      setToggleModal(true);
+      toggleModal(!modal);
       setFormData(initialState);
     }
   };
+
   return (
     <>
       <S.Root>
@@ -70,9 +74,9 @@ export default function Contact() {
                 <div className="contact-form my-5">
                   <input
                     name="nome"
-                    value={formData.nome}
+                    value={formData.name}
                     onChange={(event) =>
-                      setFormData({ ...formData, nome: event.target.value })
+                      setFormData({ ...formData, name: event.target.value })
                     }
                     type="text"
                     placeholder="Seu nome aqui..."
@@ -92,11 +96,11 @@ export default function Contact() {
                     </label>
                     <select
                       name="assunto"
-                      value={formData.assunto}
+                      value={formData.subject}
                       onChange={(event) =>
                         setFormData({
                           ...formData,
-                          assunto: event.target.value,
+                          subject: event.target.value,
                         })
                       }
                       id="assunto"
@@ -122,17 +126,25 @@ export default function Contact() {
                     <input
                       id="mensagem"
                       name="mensagem"
-                      value={formData.mensagem}
+                      value={formData.message}
                       onChange={(event) =>
                         setFormData({
                           ...formData,
-                          mensagem: event.target.value,
+                          message: event.target.value,
                         })
                       }
                       type="text"
                       placeholder="Sua mensagem..."
                     />
-                    <input className="submit" type="submit" value="Enviar" />
+                    <button className="submit btn btn-dark" type="submit" disabled={loading}>
+                      {loading ? (
+                        <div className="spinner-border" role="status">
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                      ) : (
+                        "Enviar"
+                      )}
+                    </button>
                   </div>
                 </div>
               </form>
@@ -140,38 +152,7 @@ export default function Contact() {
           </div>
         </div>
       </S.Root>
-      <div>
-        <div className="modal" tabIndex={-1}>
-          <div className="modal-dialog" style={{ background: "#191E29" }}>
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Modal title</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                />
-              </div>
-              <div className="modal-body">
-                <p>
-                  Muito obrigado pelo contato! Recebi seu email e em breve
-                  retornarei :)
-                </p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-dark"
-                  data-bs-dismiss="modal"
-                >
-                  Fechar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>{" "}
-      </div>
+      <ContactModal show={modal} onClose={() => toggleModal(!modal)} />
     </>
   );
 }
