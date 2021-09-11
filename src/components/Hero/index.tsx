@@ -1,10 +1,13 @@
+import Link from "next/link";
 import Image from "next/image";
+
 import Greeting from "./Greeting";
 import Social from "./Social";
-import Link from "next/link";
+
+import { imgBase64 } from "@utils/imgBase64";
+import heroImage from "@assets/images/hero.svg";
 
 import * as S from "./styled";
-import { imgBase64 } from "@utils/imgBase64";
 
 const Hero = () => {
   return (
@@ -31,7 +34,7 @@ const Hero = () => {
                       Entre em contato
                     </button>
                   </a>
-                  <Link href="https://drive.google.com/file/d/1EBcUnHGge9SpPGbICDsjVJq3Q6YhyBlY/view?usp=sharing">
+                  <Link href="/curriculo.pdf">
                     <a target="_blank">
                       <div className="ms-3">
                         <button className="btn btn-black-glass p-3">
@@ -43,13 +46,13 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-12 col-lg-6 d-flex align-items-center developer">
+            <div className="col-md-12 col-lg-6 d-flex align-items-center justify-content-center developer">
               <div>
                 <Image
                   placeholder="blur"
                   blurDataURL={imgBase64}
                   alt="Animação de homem flutuando com seu notebook em contexto de programação"
-                  src="/hero.svg"
+                  src={heroImage}
                   height={500}
                   width={500}
                 />

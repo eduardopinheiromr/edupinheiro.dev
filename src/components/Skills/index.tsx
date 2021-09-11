@@ -1,7 +1,11 @@
-import { skills, softwareSkills } from "./skills";
 import Image from "next/image";
-import * as S from "./styled";
+
+import { skills, softwareSkills } from "./skills";
 import { imgBase64 } from "@utils/imgBase64";
+
+import developerImage from "@assets/images/developer.svg";
+
+import * as S from "./styled";
 
 const MySkills = () => {
   return (
@@ -9,12 +13,12 @@ const MySkills = () => {
       <a className="anchor" id="habilidades"></a>
       <div className="container min-height-80">
         <div className="row">
-          <div className="col-lg-6 col-md-12 developer">
+          <div className="col-lg-6 col-md-12 d-flex justify-content-center items-center developer">
             <Image
               placeholder="blur"
               blurDataURL={imgBase64}
               alt="Animação de homem flutuando com seu notebook em contexto de programação"
-              src="/developer.svg"
+              src={developerImage}
               height={500}
               width={500}
             />
