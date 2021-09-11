@@ -1,4 +1,4 @@
-import { Footer, Header } from "components";
+import { Footer, Header } from "@components";
 import { ReactNode } from "react";
 import Head from "next/head";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { submitContact } from "services/submitContact";
+import { submitContact } from "@services/submitContact";
 
 import * as S from "./styled";
 

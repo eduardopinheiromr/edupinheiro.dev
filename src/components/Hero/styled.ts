@@ -117,6 +117,7 @@ export const Social = styled.div`
     img {
     }
     a:hover {
+      color: inherit;
       transform: scale(1.1);
     }
   }

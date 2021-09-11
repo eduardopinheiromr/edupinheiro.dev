@@ -14,12 +14,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "experimentalDecorators": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@components": ["components/index"],
-      "@hooks/*": ["hooks/*"],
-      "@assets/*": ["assets/*"],
-      "@styles/*": ["styles/*"]
+      "@assets/*": ["public/*"],
+      "@components": ["src/components/index"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"],
+      "@services/*": ["src/services/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

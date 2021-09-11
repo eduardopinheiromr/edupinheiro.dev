@@ -1,7 +1,7 @@
 import { skills, softwareSkills } from "./skills";
 import Image from "next/image";
 import * as S from "./styled";
-import { imgBase64 } from "utils/imgBase64";
+import { imgBase64 } from "@utils/imgBase64";
 
 const MySkills = () => {
   return (

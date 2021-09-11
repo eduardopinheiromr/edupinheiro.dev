@@ -4,7 +4,7 @@ import Social from "./Social";
 import Link from "next/link";
 
 import * as S from "./styled";
-import { imgBase64 } from "utils/imgBase64";
+import { imgBase64 } from "@utils/imgBase64";
 
 const Hero = () => {
   return (

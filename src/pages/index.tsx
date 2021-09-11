@@ -7,9 +7,8 @@ import {
   Layout,
   AboutMe,
   Projects,
-} from "components";
-import { PageTags } from "components/PageTags";
-
+  PageTags,
+} from "@components";
 export default function HomePage() {
   return (
     <>

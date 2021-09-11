@@ -7,7 +7,7 @@ type Props = {
   image?: string;
 };
 
-export const PageTags = ({ title, description, image }: Props) => {
+const PageTags = ({ title, description, image }: Props) => {
   const router = useRouter();
   const url = process.env.NEXT_PUBLIC_BASE_URL;
   const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
@@ -57,3 +57,5 @@ export const PageTags = ({ title, description, image }: Props) => {
     </Head>
   );
 };
+
+export default PageTags;
