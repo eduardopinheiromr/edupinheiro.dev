@@ -1,13 +1,13 @@
 import {
+  PageTags,
   Hero,
   Skills,
-  Contact,
   Education,
   Experience,
   Layout,
   AboutMe,
   Projects,
-  PageTags,
+  Contact,
 } from "@components";
 export default function HomePage() {
   return (
