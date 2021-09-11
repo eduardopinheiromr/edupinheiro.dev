@@ -23,9 +23,17 @@ export const GlobalStyle = createGlobalStyle`
     color: #fff;
   }
 
-  a {
+  .link-primary {
     color: inherit;
     text-decoration: none;
+    color: #ffcc52;
+    transition: .1s;
+    line-height: 2rem;
+
+    &:hover{
+      border-bottom: 2px solid yellow;
+      color: #ffcc52
+    }
   }
 
   .anchor {
@@ -35,12 +43,13 @@ export const GlobalStyle = createGlobalStyle`
     visibility: hidden;
   }
 
-  .link {
-    color: #b6b6b6;
+  .link-secondary {
+    color: #d6d6d6;
     transition: .3s;
+    text-decoration: none;
     &:hover {
-      text-decoration: none;
       color: #fff;
+      filter: brightness(150%)
     }
   }
 
@@ -92,13 +101,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   .overflow-x-hidden {
     overflow-x: hidden;
-  }
-  .link-savanna {
-    transition: 0.1s;
-  }
-  .link-savanna:hover {
-    text-decoration: none;
-    color: #ffcc52;
   }
   ::-webkit-scrollbar {
     width: 3px;

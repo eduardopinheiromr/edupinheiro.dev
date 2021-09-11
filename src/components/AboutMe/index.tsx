@@ -16,7 +16,7 @@ export default function AboutMe() {
               redes sociais e também, criava os posts para divulgar minha marca
               &nbsp;
               <Link href="https://www.instagram.com/savannabr/">
-                <a className="link-savanna" target="_blank">
+                <a className="link-primary" target="_blank">
                   @savannabr
                 </a>
               </Link>

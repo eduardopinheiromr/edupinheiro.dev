@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const projects = [
   {
     name: "InvestFlex",
@@ -54,9 +56,11 @@ const Projects = () => {
               key={key}
             >
               <p className="h3 font-weight-bold">{project.name}</p>
-              <a href={project.link} target="_blank" rel="noreferrer">
-                {project.link}
-              </a>
+              <Link href={project.link} passHref>
+                <a target="_blank" rel="noreferrer" className="link-primary">
+                  {project.link}
+                </a>
+              </Link>
               <p style={{ color: "#b6b6b6" }}>{project.technologies}</p>
               <p>{project.about}</p>
             </div>

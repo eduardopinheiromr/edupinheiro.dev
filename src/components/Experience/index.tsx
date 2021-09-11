@@ -82,7 +82,7 @@ const Experience = () => {
                     {job.title}
                   </h3>
                   <Link href={job.link} passHref>
-                    <a className="link" target="_blank">
+                    <a className="link-secondary" target="_blank">
                       <h4 className="vertical-timeline-element-subtitle">
                         {job.company}
                       </h4>

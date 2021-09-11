@@ -31,7 +31,7 @@ export default function ContactModal({ show, onClose }: Props) {
     >
       <div className="d-flex flex-column justify-items-center align-items-center">
         <Image src={emailImage} alt="" />
-        <p className="h4 text-center md-px-5">
+        <p className="h4 text-center px-md-5">
           Muito obrigado pelo contato! Recebi seu email e em breve retornarei :)
         </p>
         <div className="w-100 px-md-5 my-4">

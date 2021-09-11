@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { submitContact } from "@services/submitContact";
+import Link from "next/link";
 
 import * as S from "./styled";
 import ContactModal from "./ContactModal";
@@ -37,21 +38,21 @@ export default function Contact() {
             <div className="col-lg-6 col-md-12 d-flex flex-column justify-content-around px-5">
               <p>
                 Gostou do que viu? Disponibilizo todos os meus contatos por
-                aqui, mas caso deseje que eu te procure, sem problemas :)
+                aqui, mas se preferir que eu te procure, sem problemas :)
               </p>
               <p>
-                A solução que utilizei para receber emails de contato sem
-                backend é gratuita -{" "}
-                <a
-                  href="https://web3forms.com/"
-                  target="_blank"
-                  rel="noreferrer"
+                A solução que utilizei para receber emails de contato foi
+                desenvolvida por mim. Caso tenha curiosidade, você pode acessar
+                o repositório com o projeto{" "}
+                <Link
+                  href="https://github.com/eduardopinheiromr/nextmailer"
+                  passHref
                 >
-                  Web3Forms
-                </a>
-                . De tempos em tempos, busco por soluções e ferramentas que
-                visam reduzir custos/encurtar caminhos para problemas comuns
-                meus e dos clientes.
+                  <a target="_blank" className="link-primary">
+                    Nextmailer
+                  </a>
+                </Link>
+                .
               </p>
             </div>
             <div className="col-lg-6 col-md-12">
@@ -136,7 +137,11 @@ export default function Contact() {
                       type="text"
                       placeholder="Sua mensagem..."
                     />
-                    <button className="submit btn btn-dark" type="submit" disabled={loading}>
+                    <button
+                      className="submit btn btn-dark"
+                      type="submit"
+                      disabled={loading}
+                    >
                       {loading ? (
                         <div className="spinner-border" role="status">
                           <span className="visually-hidden">Loading...</span>
@@ -155,8 +160,4 @@ export default function Contact() {
       <ContactModal show={modal} onClose={() => toggleModal(!modal)} />
     </>
   );
-}
-
-{
-  /* <input type="hidden" name="redirect" defaultValue="https://web3forms.com/success" /> */
 }
