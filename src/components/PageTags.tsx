@@ -25,14 +25,14 @@ const PageTags = ({ title, description, image }: Props) => {
       <meta property="og:url" content={url + router.asPath} />
       <meta
         property="og:image"
-        content={image ? image : url + "/assets/images/logo-vector.png"}
+        content={image ? image : url + "/images/edu.webp"}
       />
       <meta property="og:site_name" content={siteName} />
       {/* TODO: Descobrir o que é e qual o código utilizar no content do fb:admins */}
       {/* <meta property="fb:admins" content="" /> */}
       <link rel="canonical" href={url + router.asPath} />
 
-      <link
+      {/* <link
         rel="apple-touch-icon"
         sizes="180x180"
         href="/apple-touch-icon.png"
@@ -49,7 +49,7 @@ const PageTags = ({ title, description, image }: Props) => {
         sizes="16x16"
         href="/favicon-16x16.png"
       />
-      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="manifest" href="/site.webmanifest" /> */}
 
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />

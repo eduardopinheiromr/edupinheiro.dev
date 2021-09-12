@@ -1,5 +1,5 @@
 import Image from "next/image";
-import avatarImage from "@assets/images/edu.png";
+import avatarImage from "@assets/images/edu.webp";
 
 import * as S from "./styled";
 

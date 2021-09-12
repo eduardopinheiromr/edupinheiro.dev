@@ -24,7 +24,7 @@ const Social = () => {
       <div className="buttons">
         {links.map((link, key) => (
           <Link key={key} href={link.href}>
-            <a target="_blank">
+            <a target="_blank" rel="noreferrer">
               <i className={link.class} />
             </a>
           </Link>

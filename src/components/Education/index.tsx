@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import gamaLogo from "@assets/images/gama.png";
+import gamaLogo from "@assets/images/gama.webp";
 import resiliaLogo from "@assets/images/resilia.webp";
 
 const resilia = {
@@ -39,8 +39,8 @@ const Education = () => {
         <h2 className="section-title">Educação</h2>
         <div className="row">
           <div className="col-12 col-lg-6 mb-5 mb-lg-0 d-flex justify-content-start align-items-center flex-column px-5">
-            <Link href="https://www.gama.academy/">
-              <a target="_blank">
+            <Link href="https://www.resilia.com.br/">
+              <a target="_blank" rel="noreferrer">
                 <Image
                   draggable={false}
                   alt="Logo da startup de educação Resilia"
@@ -53,14 +53,14 @@ const Education = () => {
             </Link>
             <div className="mt-5">
               <p>{resilia.description}</p>
-              <h5>Hard skills trabalhadas:</h5>
+              <p className="h5">Hard skills trabalhadas:</p>
               <ul>
                 {resilia.hardskills.map((skill, key) => (
                   <li key={key}>{skill}</li>
                 ))}
               </ul>
 
-              <h5>Soft skills trabalhadas:</h5>
+              <p className="h5">Soft skills trabalhadas:</p>
               <ul>
                 {resilia.softskills.map((skill, key) => (
                   <li key={key}>{skill}</li>
@@ -71,7 +71,7 @@ const Education = () => {
 
           <div className="col-12 col-lg-6 d-flex justify-content-start align-items-center flex-column px-5">
             <Link href="https://www.gama.academy/">
-              <a target="_blank">
+              <a target="_blank" rel="noreferrer">
                 <Image
                   draggable={false}
                   alt="Logo da startup de educação Gama Academy"
@@ -84,7 +84,7 @@ const Education = () => {
             </Link>
             <div className="mt-4">
               <p>{gama.description}</p>
-              <h5>Skills trabalhadas</h5>
+              <p className="h5">Skills trabalhadas</p>
               <ul>
                 {gama.skills.map((skill, key) => (
                   <li key={key}>

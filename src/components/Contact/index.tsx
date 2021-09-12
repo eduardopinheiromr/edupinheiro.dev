@@ -55,7 +55,7 @@ export default function Contact() {
                   href="https://github.com/eduardopinheiromr/nextmailer"
                   passHref
                 >
-                  <a target="_blank" className="link-primary">
+                  <a target="_blank" className="link-primary" rel="noreferrer">
                     Nextmailer
                   </a>
                 </Link>
