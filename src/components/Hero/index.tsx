@@ -49,6 +49,7 @@ const Hero = () => {
             <div className="col-md-12 col-lg-6 d-flex align-items-center justify-content-center developer">
               <div>
                 <Image
+                  draggable={false}
                   placeholder="blur"
                   blurDataURL={imgBase64}
                   alt="Animação de homem flutuando com seu notebook em contexto de programação"

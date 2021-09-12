@@ -4,10 +4,10 @@ export default function AboutMe() {
   return (
     <>
       <a className="anchor" id="historia"></a>
-      <div className="container min-height-80">
-        <h2 className="section-title">Minha história</h2>
+      <div className="container min-height-80 my-5">
+        <h2 className="section-title my-5">Minha história</h2>
         <div className="row text-md-start text-center">
-          <div className="col-lg-6 col-md-12 my-5">
+          <div className="col-lg-6 col-md-12">
             <p>
               Tive muitos interesses profissionais antes de encontrar meu lugar
               na programação. No meu último trabalho antes de conhecer o
@@ -43,7 +43,7 @@ export default function AboutMe() {
               Treinamentos, etc.
             </p>
           </div>
-          <div className="col-lg-6 col-md-12 my-5">
+          <div className="col-lg-6 col-md-12 my-lg-5">
             <p>
               Atualmente empreendo na carreira de TI, trabalhando no lançamento
               da minha Startup de Transformação Digital, em que eu auxilio

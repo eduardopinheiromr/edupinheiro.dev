@@ -23,6 +23,10 @@ export const GlobalStyle = createGlobalStyle`
     color: #fff;
   }
 
+  .nav-link {
+    margin: 1rem auto;
+  }
+
   .link-primary {
     color: inherit;
     text-decoration: none;
@@ -53,6 +57,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .text-white{
+    color: #fff;
+  }
   .shadow-xl {
     box-shadow: 0 1rem 1rem rgb(0 0 0 / 18%);
   }

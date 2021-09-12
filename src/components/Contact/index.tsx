@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import * as S from "./styled";
 import ContactModal from "./ContactModal";
+import Social from "../Hero/Social";
 
 const initialState = {
   name: "",
@@ -20,12 +21,17 @@ export default function Contact() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    const response = await submitContact(formData);
-    setLoading(false);
-    if (response.status === 200) {
-      toggleModal(!modal);
-      setFormData(initialState);
+    try {
+      const response = await submitContact(formData);
+
+      if (response.status === 200) {
+        toggleModal(!modal);
+        setFormData(initialState);
+      }
+    } catch (error) {
+      alert(error);
     }
+    setLoading(false);
   };
 
   return (
@@ -40,6 +46,7 @@ export default function Contact() {
                 Gostou do que viu? Disponibilizo todos os meus contatos por
                 aqui, mas se preferir que eu te procure, sem problemas :)
               </p>
+              <Social />
               <p>
                 A solução que utilizei para receber emails de contato foi
                 desenvolvida por mim. Caso tenha curiosidade, você pode acessar

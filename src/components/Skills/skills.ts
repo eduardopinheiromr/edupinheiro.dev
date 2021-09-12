@@ -18,10 +18,6 @@ export const softwareSkills = [
     fontAwesomeClassname: "fab fa-js",
   },
   {
-    skillName: "WordPress",
-    fontAwesomeClassname: "fab fa-wordpress",
-  },
-  {
     skillName: "SASS",
     fontAwesomeClassname: "fab fa-sass",
   },
@@ -32,10 +28,6 @@ export const softwareSkills = [
   {
     skillName: "NodeJs",
     fontAwesomeClassname: "fab fa-node",
-  },
-  {
-    skillName: "npm",
-    fontAwesomeClassname: "fab fa-npm",
   },
   {
     skillName: "SQL e NoSQL",

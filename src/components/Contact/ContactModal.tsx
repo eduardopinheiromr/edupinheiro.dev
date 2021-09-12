@@ -30,7 +30,7 @@ export default function ContactModal({ show, onClose }: Props) {
       overlayClassName="overlay"
     >
       <div className="d-flex flex-column justify-items-center align-items-center">
-        <Image src={emailImage} alt="" />
+        <Image draggable={false} src={emailImage} alt="" />
         <p className="h4 text-center px-md-5">
           Muito obrigado pelo contato! Recebi seu email e em breve retornarei :)
         </p>

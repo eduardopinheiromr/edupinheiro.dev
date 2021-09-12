@@ -19,10 +19,10 @@ export default function HomePage() {
       <Layout>
         <Hero />
         <Skills />
+        <Projects />
         <AboutMe />
         <Experience />
         <Education />
-        <Projects />
         <Contact />
       </Layout>
     </>

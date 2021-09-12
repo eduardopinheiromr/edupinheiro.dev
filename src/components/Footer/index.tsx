@@ -12,6 +12,7 @@ const Footer = () => {
           <div className="col-md-12">
             <div className="my-picture mx-auto">
               <Image
+                draggable={false}
                 placeholder="blur"
                 alt="Foto de perfil de Eduardo Pinheiro"
                 height={300}

@@ -4,7 +4,7 @@ import { transporter } from "@config/nodemailer";
 const contactHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const mailData = {
     from: process.env.SMTP_EMAIL,
-    to: "3dup1n@gmail.com, eduardo@novahera.com.br",
+    to: "3dup1n@gmail.com",
     subject: `${req.body.subject ?? ""} Contato de ${req.body.name}`,
     text: req.body.message,
     html: `<div>
@@ -15,7 +15,7 @@ const contactHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         </div>`,
   };
 
-  await transporter.sendMail(mailData, (err, info) => {
+  transporter.sendMail(mailData, (err, info) => {
     if (err) {
       console.log({ err });
 
@@ -23,7 +23,7 @@ const contactHandler = async (req: NextApiRequest, res: NextApiResponse) => {
         message:
           "There is a problem with the mail service. Please, try other way of contact.",
       });
-    } else res.status(200).send({ message: "Email sended!" });
+    } else res.status(200).send({ message: "Email sended." });
   });
 };
 

@@ -15,6 +15,7 @@ const MySkills = () => {
         <div className="row">
           <div className="col-lg-6 col-md-12 d-flex justify-content-center items-center developer">
             <Image
+              draggable={false}
               placeholder="blur"
               blurDataURL={imgBase64}
               alt="Animação de homem flutuando com seu notebook em contexto de programação"

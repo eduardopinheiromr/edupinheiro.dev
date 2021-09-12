@@ -42,6 +42,7 @@ const Education = () => {
             <Link href="https://www.gama.academy/">
               <a target="_blank">
                 <Image
+                  draggable={false}
                   alt="Logo da startup de educação Resilia"
                   src={resiliaLogo}
                   width={300}
@@ -72,6 +73,7 @@ const Education = () => {
             <Link href="https://www.gama.academy/">
               <a target="_blank">
                 <Image
+                  draggable={false}
                   alt="Logo da startup de educação Gama Academy"
                   src={gamaLogo}
                   width={300}

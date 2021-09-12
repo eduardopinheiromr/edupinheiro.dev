@@ -1,9 +1,14 @@
 import { useState } from "react";
+import Link from "next/link";
 
 const navItems = [
   {
     id: "habilidades",
     label: "Habilidades",
+  },
+  {
+    id: "projetos",
+    label: "Projetos",
   },
   {
     id: "historia",
@@ -18,52 +23,46 @@ const navItems = [
     label: "Educação",
   },
   {
-    id: "projetos",
-    label: "Projetos",
-  },
-  {
     id: "contato",
     label: "Contato",
   },
 ];
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
   return (
     <header className="shadow-xl">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-xl">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <span className="logo">&lt; EduPinheiro /&gt;</span>
-          </a>
+          <Link href="/" passHref>
+            <a className="navbar-brand">
+              <span className="logo">&lt; EduPinheiro /&gt;</span>
+            </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav ms-auto text-center">
               {navItems.map((item, key) => (
-                <li className="nav-item" key={key}>
+                <div className="nav-item" key={key}>
                   <a
-                    className="nav-link active"
+                    className="nav-link"
                     aria-current="page"
                     href={"#" + item.id}
                   >
                     {item.label}
                   </a>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </nav>
