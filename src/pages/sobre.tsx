@@ -103,9 +103,8 @@ export default function AboutMe({ content }) {
 
 export const getStaticProps: GetStaticProps = async context => {
   const mdFiles = ["bio", "educação", "experiência", "habilidades"];
-
   const markdownPaths = mdFiles.map(
-    name => `http://localhost:3000/content/${name}.md`
+    name => `${process.env.NEXT_PUBLIC_CONTENT_FOLDER}${name}.md`
   );
 
   const content = await Promise.all(

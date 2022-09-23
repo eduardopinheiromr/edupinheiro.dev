@@ -1,7 +1,14 @@
 import { Text } from "@chakra-ui/react";
 import { Link } from "../Link";
 
-export default function Variable({ name, link }) {
+type Props = {
+  name: string;
+  isLink?: boolean;
+  link?: string;
+  value?: string | JSX.Element;
+};
+
+export default function Variable({ name, isLink, value, link }: Props) {
   return (
     <Text>
       <Text as="span" color="blue">
@@ -13,15 +20,18 @@ export default function Variable({ name, link }) {
       <Text as="span" color="white">
         =
       </Text>{" "}
-      <Link href={link} target="_blank">
-        <Text
-          as="span"
-          color="string"
-          _hover={{ borderBottom: "1px solid", filter: "brightness(.7)" }}
-        >
-          &quot;{link.replace("https://", "")}&quot;
-        </Text>
-      </Link>
+      {isLink && (
+        <Link href={link} target="_blank">
+          <Text
+            as="span"
+            color="string"
+            _hover={{ borderBottom: "1px solid", filter: "brightness(.7)" }}
+          >
+            &quot;{link.replace("https://", "")}&quot;
+          </Text>
+        </Link>
+      )}
+      {!isLink && value}
     </Text>
   );
 }

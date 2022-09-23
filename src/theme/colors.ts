@@ -3,6 +3,8 @@ export const colors = {
   darkblue: "#011627",
   blue: "#4D5BCE",
   constant: "#43D9AD",
+  orange: "#FEA55F",
+  pink: "#C98BDF",
   string: "#E99287",
   blackline: "#1E2D3D",
   text: "#607B96",
