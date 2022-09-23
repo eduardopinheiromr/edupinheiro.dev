@@ -154,6 +154,7 @@ export default function Header() {
                 ? "white"
                 : "text"
             }
+            onClick={onClose}
           >
             <Text px={4}>_{item.label}</Text>
           </Link>

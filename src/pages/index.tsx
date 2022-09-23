@@ -15,14 +15,18 @@ export default function HomePage() {
       pb={8}
     >
       <Flex
-        minH="420px"
+        minH="240px"
         direction={{ base: "column", lg: "row" }}
         align="center"
         mx="auto"
         p={{ base: 4, md: 0 }}
         gap={8}
       >
-        <Flex direction="column" p={{ base: 0, md: 16 }} h="full">
+        <Flex
+          direction="column"
+          p={{ base: 0, md: 16 }}
+          h={{ base: undefined, md: "full" }}
+        >
           <Text color="white" pl={1} fontSize="xl">
             Olá, me chamo
           </Text>
@@ -45,7 +49,7 @@ export default function HomePage() {
 
           <Stack
             mt={8}
-            fontSize={{ base: 10, sm: 14, xl: 18 }}
+            fontSize={{ base: "3.3vw", sm: 14, xl: 18 }}
             whiteSpace={{ base: "unset", md: "nowrap" }}
           >
             <Variable name="linkedin" link={socialLinks.linkedin.href} />
