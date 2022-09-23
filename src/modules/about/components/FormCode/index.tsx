@@ -19,14 +19,16 @@ const TextLikeObjectAttribute = ({ variableName, value }) => {
 export default function FormCode() {
   const methods = useFormContext();
   return (
-    <Flex w={{ base: "full", lg: "50%" }}>
+    <Flex
+      w={{ base: "full", lg: "50%" }}
+      fontSize={{ base: "11px", sm: "14px" }}
+    >
       <Flex
         direction="column"
-        p={8}
+        p={{ base: 2, md: 8 }}
         pr={0}
         bg="black"
         color="white"
-        fontSize="14px"
       >
         <Text>1</Text>
         <Text>2</Text>
@@ -43,18 +45,18 @@ export default function FormCode() {
         <Text>12</Text>
       </Flex>
       <Flex
+        overflowX="scroll"
         flex="1"
         direction="column"
-        p={8}
+        p={{ base: 2, md: 8 }}
         bg="black"
         fontWeight="bold "
-        fontSize="14px"
       >
         <Variable
           name="button"
           isLink={false}
           value={
-            <Text color="blue" whiteSpace="unset">
+            <Text color="blue">
               document.querySelector(
               <Text as="span" color="orange">
                 {"'"}#submitButton{"'"}

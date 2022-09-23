@@ -20,17 +20,18 @@ export default function Variable({ name, isLink, value, link }: Props) {
       <Text as="span" color="white">
         =
       </Text>{" "}
-      {isLink && (
-        <Link href={link} target="_blank">
-          <Text
-            as="span"
-            color="string"
-            _hover={{ borderBottom: "1px solid", filter: "brightness(.7)" }}
-          >
-            &quot;{link.replace("https://", "")}&quot;
-          </Text>
-        </Link>
-      )}
+      {isLink ||
+        (isLink === undefined && (
+          <Link href={link} target="_blank">
+            <Text
+              as="span"
+              color="string"
+              _hover={{ borderBottom: "1px solid", filter: "brightness(.7)" }}
+            >
+              &quot;{link.replace("https://", "")}&quot;
+            </Text>
+          </Link>
+        ))}
       {!isLink && value}
     </Text>
   );

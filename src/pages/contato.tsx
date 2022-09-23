@@ -52,7 +52,7 @@ export default function ContactPage() {
   };
   return (
     <PageLayout>
-      <Flex flex="1">
+      <Flex flex="1" direction={{ base: "column", lg: "row" }}>
         <SideMenu label="dados-pessoais">
           {anchors.map(anchor => (
             <Link
@@ -87,14 +87,16 @@ export default function ContactPage() {
         </SideMenu>
         <FormProvider {...methods}>
           <Flex flex="1" direction={{ base: "column", lg: "row" }}>
-            <Flex flex="1">
+            <Flex flex="1" w="full">
               <Flex
+                p={{ base: 4, md: 8 }}
                 as="form"
                 onSubmit={methods.handleSubmit(onValidSubmit)}
-                p={8}
                 gap={8}
                 direction="column"
                 w="full"
+                // flex="1"
+                // w={{ base: "full", lg: "50%" }}
                 borderRight="1px"
               >
                 <CustomInput
