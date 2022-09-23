@@ -6,14 +6,16 @@ import SideMenu from "@modules/shared/components/SideMenu";
 import { technologies } from "@modules/shared/constants/technologies";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useTabStore } from "@modules/shared/stores/useTabStore";
 
 export default function ProjectsPage() {
   const router = useRouter();
-
+  const { tabsOpened, set } = useTabStore();
   useEffect(() => {
     if (!router.asPath.includes("#")) {
       router.replace("#react");
     }
+    set({ tabsOpened: ["react"] });
   }, [router.isReady]);
   return (
     <PageLayout title={router.pathname}>
@@ -24,6 +26,14 @@ export default function ProjectsPage() {
               display="flex"
               key={technology.name}
               href={`#${technology.name}`}
+              onClick={() => {
+                const hasTab = tabsOpened.includes(technology.name);
+                set({
+                  tabsOpened: hasTab
+                    ? tabsOpened
+                    : [...tabsOpened, technology.name],
+                });
+              }}
               transition=".3s"
               bg={
                 decodeURI(router.asPath).includes("#" + technology.name)
@@ -50,26 +60,7 @@ export default function ProjectsPage() {
             </Link>
           ))}
         </SideMenu>
-        {router.asPath.includes("#") && (
-          <ContentFile
-            filename={
-              <Flex align="center">
-                <Icon
-                  as={
-                    technologies.find(
-                      technology =>
-                        decodeURI(router.asPath).split("#")[1] ===
-                        technology.name
-                    )?.icon
-                  }
-                />
-                <Text ml={2}>{decodeURI(router.asPath).split("#")[1]}</Text>
-              </Flex>
-            }
-          >
-            Já já
-          </ContentFile>
-        )}
+        {router.asPath.includes("#") && <ContentFile>Já já</ContentFile>}
         {!router.asPath.includes("#") && (
           <Flex direction="column" flex="1" textAlign="center">
             <Heading color="white" mt={{ base: 16, lg: 48 }}>

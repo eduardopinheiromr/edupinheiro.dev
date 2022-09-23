@@ -8,7 +8,7 @@ export const navigation = [
     path: "/sobre#bio",
   },
   {
-    label: "projetos",
+    label: "projetos#react",
     path: "/projetos",
   },
 ];

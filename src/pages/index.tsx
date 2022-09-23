@@ -20,7 +20,7 @@ export default function HomePage() {
         align="center"
         mx="auto"
         p={{ base: 4, md: 0 }}
-        gap={8}
+        gap={{ base: 4, sm: 8 }}
       >
         <Flex
           direction="column"

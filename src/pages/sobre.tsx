@@ -1,66 +1,68 @@
 import PageLayout from "@modules/shared/components/PageLayout";
-import { Flex, Heading, Icon, Spinner, Text } from "@chakra-ui/react";
+import { Flex, Heading, Icon, Skeleton, Text } from "@chakra-ui/react";
 import { FaMarkdown } from "react-icons/fa";
+import { GetStaticProps } from "next";
 
 import { useRouter } from "next/router";
 import { Link } from "@modules/shared/components/Link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import SideMenu from "@modules/shared/components/SideMenu";
 import { anchors } from "@modules/shared/constants/anchors";
-import ContentFile from "@modules/shared/components/ContentFile";
+import dynamic from "next/dynamic";
+import { useTabStore } from "@modules/shared/stores/useTabStore";
 
-export default function AboutMe() {
+const ContentFile = dynamic(
+  () => import("@modules/shared/components/ContentFile"),
+  { ssr: false }
+);
+const ThankYou = dynamic(() => import("@modules/about/components/ThankYou"), {
+  ssr: false,
+});
+
+export default function AboutMe({ content }) {
+  const { tabsOpened, set } = useTabStore();
+
   const router = useRouter();
 
-  const [markdown, setMarkdown] = useState<string>(undefined);
+  const decodedURI = decodeURI(router.asPath.split("#")[1]);
+  const anchorName = decodedURI === "undefined" ? undefined : decodedURI;
 
   useEffect(() => {
-    if (!router.asPath.includes("#")) {
-      router.replace("#bio");
-    }
+    set({ tabsOpened: ["bio"] });
   }, [router.isReady]);
-
-  useEffect(() => {
-    if (router.asPath.includes("#")) {
-      const markdownPath = `/content/${decodeURI(
-        router.asPath.split("#")[1]
-      )}.md`.toLowerCase();
-
-      fetch(markdownPath)
-        .then(res => res.text())
-        .then(text => setMarkdown(text));
-    }
-  }, [router.asPath]);
 
   return (
     <PageLayout>
-      <Flex flex="1">
+      <Flex flex="1" direction={{ base: "column", md: "row" }}>
         <SideMenu label="dados-pessoais">
           {anchors.map(anchor => (
             <Link
               display="flex"
+              onClick={() => {
+                const hasTab = tabsOpened.includes(anchor);
+                set({
+                  tabsOpened: hasTab ? tabsOpened : [...tabsOpened, anchor],
+                });
+              }}
               key={anchor}
               href={`#${anchor}`}
               transition=".3s"
               bg={
-                decodeURI(router.asPath).includes("#" + anchor)
+                anchorName === anchor
                   ? "rgba(255, 255, 255, 0.2)"
                   : "transparent"
               }
-              color={
-                decodeURI(router.asPath).includes("#" + anchor)
-                  ? "white"
-                  : "text"
-              }
+              color={anchorName === anchor ? "white" : "text"}
               px={4}
               py={2}
               alignItems="center"
               gap={2}
               _hover={{
                 textDecor: "none",
-                bg: decodeURI(router.asPath).includes("#" + anchor)
-                  ? "rgba(255, 255, 255, 0.2)"
-                  : "rgba(255, 255, 255, 0.1)",
+                bg:
+                  anchorName === anchor
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "rgba(255, 255, 255, 0.1)",
               }}
             >
               <Icon as={FaMarkdown} /> <Text>{anchor}.md</Text>
@@ -68,39 +70,57 @@ export default function AboutMe() {
           ))}
         </SideMenu>
 
-        {router.asPath.includes("#") && (
-          <ContentFile
-            filename={`${decodeURI(router.asPath.split("#")[1])}.md`}
-          >
-            <Flex whiteSpace="pre" gap={8} px={4}>
+        {anchorName && (
+          <ContentFile>
+            <Flex
+              whiteSpace={{ base: "pre-line", md: "pre" }}
+              gap={{ base: 2, md: 8 }}
+              px={{ base: 1, md: 4 }}
+              fontSize={{ base: "14px", md: "18px" }}
+            >
               <Flex direction="column">
-                {markdown
+                {content[anchorName]
                   ?.split("\n")
                   .slice(1)
                   .map((_, index) => (
                     <Text key={index}>{index + 1}</Text>
                   ))}
               </Flex>
-              <article
-                dangerouslySetInnerHTML={{ __html: router.isReady && markdown }}
+              <Flex
+                as="article"
+                dangerouslySetInnerHTML={{
+                  __html: content[anchorName],
+                }}
               />
-
-              {!markdown && <Spinner />}
             </Flex>
           </ContentFile>
         )}
-
-        {!router.asPath.includes("#") && (
-          <Flex direction="column" flex="1" textAlign="center">
-            <Heading color="white" mt={{ base: 16, lg: 48 }}>
-              Obrigado por visitar meu site =)
-            </Heading>
-            <Text color="text" mt={8}>
-              Para saber mais sobre mim, clique em um dos arquivos ao lado.
-            </Text>
-          </Flex>
-        )}
+        {!anchorName && <ThankYou />}
       </Flex>
     </PageLayout>
   );
 }
+
+export const getStaticProps: GetStaticProps = async context => {
+  const mdFiles = ["bio", "educação", "experiência", "habilidades"];
+
+  const markdownPaths = mdFiles.map(
+    name => `http://localhost:3000/content/${name}.md`
+  );
+
+  const content = await Promise.all(
+    markdownPaths.map(async (path, index) => {
+      const res = await fetch(path);
+      const text = await res.text();
+
+      return { [mdFiles[index]]: text };
+    })
+  ).then(content => content.reduce((acc, curr) => ({ ...acc, ...curr }), {}));
+  // transform content in object
+
+  return {
+    props: {
+      content,
+    },
+  };
+};
