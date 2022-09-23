@@ -108,5 +108,13 @@ export const styles = {
       from: { opacity: 1 },
       to: { opacity: 0 },
     },
+    "@keyframes growHeight": {
+      from: { height: "0px" },
+      to: { height: "100%" },
+    },
+    "@keyframes shrinkHeight": {
+      from: { height: "100%" },
+      to: { height: "0px" },
+    },
   },
 };
