@@ -120,45 +120,47 @@ export default function Header() {
         borderBottom={isMobileMenuOpen && "1px solid"}
         borderColor="blackline"
         transition=".3s"
-        height={isMobileMenuOpen ? 52 * navigation.length : "0px"}
+        height={isMobileMenuOpen ? 52 * (navigation.length + 1) : "0px"}
       >
-        {navigation.map((item, index) => (
-          <Link
-            opacity={isMobileMenuOpen ? 1 : 0}
-            height={isMobileMenuOpen ? 52 : "0px"}
-            animation={
-              isMobileMenuOpen
-                ? "growHeight 0.3s ease-in-out"
-                : "shrinkHeight 0.3s ease-in-out"
-            }
-            w="full"
-            key={item.label}
-            href={item.path}
-            display="flex"
-            alignItems="center"
-            h="52px"
-            borderRight="1px solid"
-            borderColor="blackline"
-            bg={
-              router.asPath.split("#")[0] === item.path.split("#")[0]
-                ? "rgba(255,255,255, 0.15)"
-                : "none"
-            }
-            _hover={{
-              textDecor: "none",
-              bg: "rgba(255,255,255, 0.1)",
-              color: "white",
-            }}
-            color={
-              router.asPath.split("#")[0] === item.path.split("#")[0]
-                ? "white"
-                : "text"
-            }
-            onClick={onClose}
-          >
-            <Text px={4}>_{item.label}</Text>
-          </Link>
-        ))}
+        {[...navigation, { label: "entre em contato", path: "/contato" }].map(
+          (item, index) => (
+            <Link
+              opacity={isMobileMenuOpen ? 1 : 0}
+              height={isMobileMenuOpen ? 52 : "0px"}
+              animation={
+                isMobileMenuOpen
+                  ? "growHeight 0.3s ease-in-out"
+                  : "shrinkHeight 0.3s ease-in-out"
+              }
+              w="full"
+              key={item.label}
+              href={item.path}
+              display="flex"
+              alignItems="center"
+              h="52px"
+              borderRight="1px solid"
+              borderColor="blackline"
+              bg={
+                router.asPath.split("#")[0] === item.path.split("#")[0]
+                  ? "rgba(255,255,255, 0.15)"
+                  : "none"
+              }
+              _hover={{
+                textDecor: "none",
+                bg: "rgba(255,255,255, 0.1)",
+                color: "white",
+              }}
+              color={
+                router.asPath.split("#")[0] === item.path.split("#")[0]
+                  ? "white"
+                  : "text"
+              }
+              onClick={onClose}
+            >
+              <Text px={4}>_{item.label}</Text>
+            </Link>
+          )
+        )}
       </Flex>
     </>
   );

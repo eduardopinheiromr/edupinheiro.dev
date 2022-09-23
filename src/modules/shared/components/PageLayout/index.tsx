@@ -12,10 +12,18 @@ export default function PageLayout({ children, ...props }: Props) {
   const title = [...navigation, { label: "contato", path: "/contato" }].find(
     n => n.path.split("#")[0] === router.pathname
   );
+
   return (
-    <Box bg="black" minH="100vh" p={{ base: 0, md: "32px" }}>
+    <Flex
+      bg="black"
+      minH="100vh"
+      p={{ base: 0, md: "32px" }}
+      position="relative"
+      overflow="hidden"
+    >
       <PageTags title={"ep.dev_" + title?.label} description={title?.label} />
       <Container
+        zIndex={99}
         shadow="xl"
         px={0}
         bg="darkblue"
@@ -40,6 +48,6 @@ export default function PageLayout({ children, ...props }: Props) {
         </Box>
         <Footer />
       </Container>
-    </Box>
+    </Flex>
   );
 }
