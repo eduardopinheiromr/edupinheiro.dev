@@ -32,7 +32,7 @@ export default function AboutMe({ content }) {
   }, [router.isReady]);
 
   return (
-    <PageLayout>
+    <PageLayout h="full">
       <Flex flex="1" direction={{ base: "column", md: "row" }}>
         <SideMenu label="dados-pessoais">
           {anchors.map(anchor => (

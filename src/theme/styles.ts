@@ -99,7 +99,35 @@ export const styles = {
     //     transform: "rotate(0deg)",
     //   },
     // },
+    "@keyframes pulseOnlyGradient": {
+      "0%": {
+        filter: "hue-rotate(0deg) brightness(1)",
+      },
 
+      "50%": {
+        filter: "hue-rotate(180deg) brightness(2)",
+      },
+
+      "100%": {
+        filter: "hue-rotate(360deg) brightness(1)",
+      },
+    },
+    "@keyframes pulseGradient": {
+      "0%": {
+        filter: "hue-rotate(0deg) brightness(1)",
+        fontSize: "100%",
+      },
+
+      "50%": {
+        filter: "hue-rotate(180deg) brightness(2)",
+        fontSize: "101%",
+      },
+
+      "100%": {
+        filter: "hue-rotate(360deg) brightness(1)",
+        fontSize: "100%",
+      },
+    },
     "@keyframes fadeIn": {
       from: { opacity: 0 },
       to: { opacity: 1 },

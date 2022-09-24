@@ -1,30 +1,16 @@
-import { Flex, Icon, IconButton, Text } from "@chakra-ui/react";
+import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { Flex, Icon, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import { VscFiles } from "react-icons/vsc";
+import { FaFolder, FaFolderOpen } from "react-icons/fa";
 
 export default function SideMenu({ label, children }) {
-  const [isFilesOpened, setFilesOpened] = useState(false);
+  const [isSideMenuOpen, setSideMenuOpen] = useState(true);
 
   return (
-    <Flex direction="column">
-      <Flex
-        direction="column"
-        justify="flex-start"
-        borderRight="1px solid"
-        borderColor="blackline"
-      >
-        <IconButton
-          w="40px"
-          rounded="none"
-          aria-label="Abrir navegação"
-          icon={<VscFiles />}
-          bg={isFilesOpened && "rgba(255, 255, 255, 0.2)"}
-          onClick={() => setFilesOpened(!isFilesOpened)}
-          color="white"
-          fontSize="24px"
-          display={{ base: "flex", md: "none" }}
-        />
-      </Flex>
+    <Flex
+      direction="column"
+      // minW={{ base: "60px", md: "195.02" }}
+    >
       <Flex
         direction="column"
         justify="flex-start"
@@ -34,23 +20,38 @@ export default function SideMenu({ label, children }) {
         h="full"
       >
         <Flex
-          direction="column"
           borderBottom="1px solid"
           borderColor="blackline"
           w="full"
           transition=".3s"
-          maxW={{ base: "60px", md: "179px" }}
-          display={{ base: "none", md: "flex" }}
+          color="white"
+          align="center"
+          px={4}
+          py={2}
+          gap={2}
+          onClick={() => setSideMenuOpen(!isSideMenuOpen)}
+          as="button"
+
+          // maxW={{ base: "60px", md: "195.02" }}
+          // display={{ base: "none", md: "flex" }}
         >
-          <Text color="white" px={4} py={2}>
-            {label}
-          </Text>
+          <Icon
+            transition=".3s"
+            transform={isSideMenuOpen ? "rotate(90deg)" : "none"}
+            as={ChevronRightIcon}
+          />
+          <Icon as={isSideMenuOpen ? FaFolderOpen : FaFolder} />
+          <Text>{label}</Text>
         </Flex>
         <Flex
-          display={isFilesOpened ? "flex" : { base: "none", md: "flex" }}
           direction="column"
           borderBottom="1px solid"
           borderColor="blackline"
+          animation={"growHeight .3s ease-in-out"}
+          transition=".3s"
+          // hidden={!isSideMenuOpen}
+          opacity={isSideMenuOpen ? 1 : 0}
+          height={isSideMenuOpen ? 40 : "0px"}
         >
           {children}
         </Flex>

@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <Flex
-      as="header"
+      as="footer"
       align="center"
       justify="space-between"
       minH="40px"
@@ -16,6 +16,10 @@ export default function Footer() {
       borderColor="blackline"
       color="text"
       direction={{ base: "column", sm: "row" }}
+      position={{ base: "fixed", md: "unset" }}
+      bottom={0}
+      w="full"
+      bg="darkblue"
     >
       <Flex>
         <Flex

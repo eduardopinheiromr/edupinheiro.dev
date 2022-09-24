@@ -7,7 +7,7 @@ import { Link } from "@modules/shared/components/Link";
 import PageLayout from "@modules/shared/components/PageLayout";
 import SideMenu from "@modules/shared/components/SideMenu";
 import Variable from "@modules/shared/components/Variable";
-import { anchors } from "@modules/shared/constants/anchors";
+import { contacts } from "@modules/shared/constants/contacts";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -53,35 +53,26 @@ export default function ContactPage() {
   return (
     <PageLayout>
       <Flex flex="1" direction={{ base: "column", lg: "row" }}>
-        <SideMenu label="dados-pessoais">
-          {anchors.map(anchor => (
+        <SideMenu label="dados-de-contato">
+          {contacts.map(({ name, url, icon }) => (
             <Link
               display="flex"
-              key={anchor}
-              href={`#${anchor}`}
+              key={name}
+              href={url}
+              target="_blank"
               transition=".3s"
-              bg={
-                decodeURI(router.asPath).includes("#" + anchor)
-                  ? "rgba(255, 255, 255, 0.2)"
-                  : "transparent"
-              }
-              color={
-                decodeURI(router.asPath).includes("#" + anchor)
-                  ? "white"
-                  : "text"
-              }
+              color="text"
               px={4}
               py={2}
               alignItems="center"
               gap={2}
               _hover={{
                 textDecor: "none",
-                bg: decodeURI(router.asPath).includes("#" + anchor)
-                  ? "rgba(255, 255, 255, 0.2)"
-                  : "rgba(255, 255, 255, 0.1)",
+                color: "white",
+                bg: "rgba(255, 255, 255, 0.1)",
               }}
             >
-              <Icon as={FaMarkdown} /> <Text>{anchor}.md</Text>
+              <Icon as={icon} /> <Text>{name}</Text>
             </Link>
           ))}
         </SideMenu>

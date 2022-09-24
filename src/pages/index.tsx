@@ -10,12 +10,11 @@ export default function HomePage() {
     <PageLayout
       animation="fadeIn 3s"
       position="relative"
-      h="full"
+      // h="full"
       display="flex"
-      pb={8}
     >
       <Flex
-        minH="240px"
+        // minH="240px"
         direction={{ base: "column", lg: "row" }}
         align="center"
         mx="auto"
@@ -32,8 +31,9 @@ export default function HomePage() {
           </Text>
           <Text
             lineHeight={1}
-            color="white"
+            color="orange"
             fontSize={{ base: "3xl", sm: "5xl", md: "6xl" }}
+            animation="pulseOnlyGradient 15s infinite"
           >
             Eduardo Pinheiro
           </Text>

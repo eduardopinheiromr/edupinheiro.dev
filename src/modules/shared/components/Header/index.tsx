@@ -6,6 +6,7 @@ import { Link } from "../Link";
 import { useRouter } from "next/router";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
+import HeaderLink from "./HeaderLink";
 
 export default function Header() {
   const router = useRouter();
@@ -20,7 +21,7 @@ export default function Header() {
   isDesktop && isMobileMenuOpen && onClose();
 
   return (
-    <>
+    <div>
       <Flex
         as="header"
         align="center"
@@ -58,32 +59,15 @@ export default function Header() {
           </Flex>
           <Flex display={{ base: "none", lg: "flex" }}>
             {navigation.map(item => (
-              <Link
-                key={item.label}
-                href={item.path}
-                display="flex"
-                alignItems="center"
-                h="52px"
-                borderRight="1px solid"
-                borderColor="blackline"
-                bg={
+              <HeaderLink
+                item={item}
+                isSelected={
                   router.asPath.split("#")[0] === item.path.split("#")[0]
-                    ? "rgba(255,255,255, 0.15)"
-                    : "none"
                 }
-                _hover={{
-                  textDecor: "none",
-                  bg: "rgba(255,255,255, 0.1)",
-                  color: "white",
-                }}
-                color={
-                  router.asPath.split("#")[0] === item.path.split("#")[0]
-                    ? "white"
-                    : "text"
-                }
-              >
-                <Text px={4}>_{item.label}</Text>
-              </Link>
+                key={item.path}
+                isMobileMenuOpen={isMobileMenuOpen}
+                onClose={onClose}
+              />
             ))}
           </Flex>
         </Flex>
@@ -114,54 +98,30 @@ export default function Header() {
           onClose={onClose}
         />
       </Flex>
-      <Flex
-        direction="column"
-        position="relative"
-        borderBottom={isMobileMenuOpen && "1px solid"}
-        borderColor="blackline"
-        transition=".3s"
-        height={isMobileMenuOpen ? 52 * (navigation.length + 1) : "0px"}
-      >
-        {[...navigation, { label: "entre em contato", path: "/contato" }].map(
-          (item, index) => (
-            <Link
-              opacity={isMobileMenuOpen ? 1 : 0}
-              height={isMobileMenuOpen ? 52 : "0px"}
-              animation={
-                isMobileMenuOpen
-                  ? "growHeight 0.3s ease-in-out"
-                  : "shrinkHeight 0.3s ease-in-out"
-              }
-              w="full"
-              key={item.label}
-              href={item.path}
-              display="flex"
-              alignItems="center"
-              h="52px"
-              borderRight="1px solid"
-              borderColor="blackline"
-              bg={
-                router.asPath.split("#")[0] === item.path.split("#")[0]
-                  ? "rgba(255,255,255, 0.15)"
-                  : "none"
-              }
-              _hover={{
-                textDecor: "none",
-                bg: "rgba(255,255,255, 0.1)",
-                color: "white",
-              }}
-              color={
-                router.asPath.split("#")[0] === item.path.split("#")[0]
-                  ? "white"
-                  : "text"
-              }
-              onClick={onClose}
-            >
-              <Text px={4}>_{item.label}</Text>
-            </Link>
-          )
-        )}
-      </Flex>
-    </>
+      {!isDesktop && (
+        <Flex
+          direction="column"
+          borderBottom={isMobileMenuOpen && "1px solid"}
+          borderColor="blackline"
+          transition=".3s"
+          height={isMobileMenuOpen ? 52 * (navigation.length + 1) : "0px"}
+        >
+          {[...navigation, { label: "entre em contato", path: "/contato" }].map(
+            (item, index) => (
+              <HeaderLink
+                isMobile
+                item={item}
+                isSelected={
+                  router.asPath.split("#")[0] === item.path.split("#")[0]
+                }
+                key={item.path}
+                isMobileMenuOpen={isMobileMenuOpen}
+                onClose={onClose}
+              />
+            )
+          )}
+        </Flex>
+      )}
+    </div>
   );
 }

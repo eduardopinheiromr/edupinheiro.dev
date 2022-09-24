@@ -7,6 +7,41 @@ import { technologies } from "@modules/shared/constants/technologies";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
+import ProjectCard from "@modules/projects/components/ProjectCard";
+
+const multiply = (times, obj) => {
+  return "."
+    .repeat(times)
+    .split("")
+    .map(_ => obj);
+};
+const projects = {
+  react: [
+    ...multiply(10, {
+      name: "React Boilerplate",
+      description:
+        "A boilerplate to start a React project with TypeScript, Chakra UI, Next.js, ESLint, Prettier, Jest, React Testing Library, Storybook, Husky, Lint Staged, Commitizen, Commitlint, Conventional Commits, and more.",
+      link: "",
+      image: "/images/next.jpeg",
+      technologies: [
+        "react",
+        "typescript",
+        "chakra-ui",
+        "nextjs",
+        "eslint",
+        "prettier",
+        "jest",
+        "react-testing-library",
+        "storybook",
+        "husky",
+        "lint-staged",
+        "commitizen",
+        "commitlint",
+        "conventional-commits",
+      ],
+    }),
+  ],
+};
 
 export default function ProjectsPage() {
   const router = useRouter();
@@ -17,9 +52,13 @@ export default function ProjectsPage() {
     }
     set({ tabsOpened: ["react"] });
   }, [router.isReady]);
+
+  const decodedURI = decodeURI(router.asPath.split("#")[1]);
+  const anchorName = decodedURI === "undefined" ? undefined : decodedURI;
+
   return (
     <PageLayout title={router.pathname}>
-      <Flex flex="1">
+      <Flex flex="1" direction={{ base: "column", md: "row" }}>
         <SideMenu label="tecnologias">
           {technologies.map(technology => (
             <Link
@@ -60,7 +99,19 @@ export default function ProjectsPage() {
             </Link>
           ))}
         </SideMenu>
-        {router.asPath.includes("#") && <ContentFile>Já já</ContentFile>}
+        {router.asPath.includes("#") && (
+          <ContentFile>
+            <Flex
+              flexWrap="wrap"
+              p={{ base: 4, xl: 0 }}
+              gap={{ base: 8, xl: "32px 16px" }}
+            >
+              {projects[anchorName]?.map((project, index) => (
+                <ProjectCard key={project.name} index={index} {...project} />
+              ))}
+            </Flex>
+          </ContentFile>
+        )}
         {!router.asPath.includes("#") && (
           <Flex direction="column" flex="1" textAlign="center">
             <Heading color="white" mt={{ base: 16, lg: 48 }}>
