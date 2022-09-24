@@ -8,6 +8,7 @@ export default function ProjectCard({
   description,
   technologies,
   link,
+  onViewProject,
 }) {
   return (
     <Flex
@@ -23,23 +24,27 @@ export default function ProjectCard({
         },
       }}
     >
-      <Link href={link ?? ""} passHref>
-        <a>
-          <Heading fontSize="16px" color="blue">
-            Projeto {index + 1}{" "}
-            <Text as="span" color="text">
-              {"//"} {name}
-            </Text>
-          </Heading>
-        </a>
-      </Link>
+      <Heading
+        cursor="pointer"
+        fontSize="16px"
+        color="blue"
+        onClick={onViewProject}
+      >
+        Projeto {index + 1}{" "}
+        <Text as="span" color="text">
+          {"//"} {name}
+        </Text>
+      </Heading>
+
       <Flex direction="column" gap={4} rounded="lg" shadow="xl">
         <Image src={image} alt={name} />
         <Flex direction="column" gap={4} p={4}>
           <Text color="text" fontSize="14px">
             {description}
           </Text>
-          <Button variant="primary">ver projeto</Button>
+          <Button variant="primary" onClick={onViewProject}>
+            ver projeto
+          </Button>
         </Flex>
       </Flex>
     </Flex>

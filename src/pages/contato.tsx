@@ -51,7 +51,7 @@ export default function ContactPage() {
     }, 2000);
   };
   return (
-    <PageLayout>
+    <PageLayout h="full">
       <Flex flex="1" direction={{ base: "column", lg: "row" }}>
         <SideMenu label="dados-de-contato">
           {contacts.map(({ name, url, icon }) => (

@@ -1,13 +1,14 @@
-import { Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { Flex, Heading, Icon, Text, useDisclosure } from "@chakra-ui/react";
 import ContentFile from "@modules/shared/components/ContentFile";
 import { Link } from "@modules/shared/components/Link";
 import PageLayout from "@modules/shared/components/PageLayout";
 import SideMenu from "@modules/shared/components/SideMenu";
 import { technologies } from "@modules/shared/constants/technologies";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
 import ProjectCard from "@modules/projects/components/ProjectCard";
+import ProjectModal from "@modules/projects/components/ProjectModal";
 
 const multiply = (times, obj) => {
   return "."
@@ -15,35 +16,41 @@ const multiply = (times, obj) => {
     .split("")
     .map(_ => obj);
 };
-const projects = {
-  react: [
-    ...multiply(10, {
-      name: "React Boilerplate",
-      description:
-        "A boilerplate to start a React project with TypeScript, Chakra UI, Next.js, ESLint, Prettier, Jest, React Testing Library, Storybook, Husky, Lint Staged, Commitizen, Commitlint, Conventional Commits, and more.",
-      link: "",
-      image: "/images/next.jpeg",
-      technologies: [
-        "react",
-        "typescript",
-        "chakra-ui",
-        "nextjs",
-        "eslint",
-        "prettier",
-        "jest",
-        "react-testing-library",
-        "storybook",
-        "husky",
-        "lint-staged",
-        "commitizen",
-        "commitlint",
-        "conventional-commits",
-      ],
-    }),
+
+const mockedProject: Project = {
+  name: "React Boilerplate",
+  description:
+    "A boilerplate to start a React project with TypeScript, Chakra UI, Next.js, ESLint, Prettier, Jest, React Testing Library, Storybook, Husky, Lint Staged, Commitizen, Commitlint, Conventional Commits, and more.",
+  links: [
+    { name: "github", href: "" },
+    { name: "npm", href: "" },
+    { name: "demo online", href: "" },
   ],
+  image: "/images/next.jpeg",
+  technologies: [
+    "react",
+    "typescript",
+    "chakra-ui",
+    "nextjs",
+    "eslint",
+    "prettier",
+    "jest",
+    "react-testing-library",
+    "storybook",
+    "husky",
+    "lint-staged",
+    "commitizen",
+    "commitlint",
+    "conventional-commits",
+  ],
+};
+const projects = {
+  react: [...multiply(10, mockedProject)],
 };
 
 export default function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState<Project>(undefined);
+
   const router = useRouter();
   const { tabsOpened, set } = useTabStore();
   useEffect(() => {
@@ -56,8 +63,10 @@ export default function ProjectsPage() {
   const decodedURI = decodeURI(router.asPath.split("#")[1]);
   const anchorName = decodedURI === "undefined" ? undefined : decodedURI;
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <PageLayout title={router.pathname}>
+    <PageLayout h="full">
       <Flex flex="1" direction={{ base: "column", md: "row" }}>
         <SideMenu label="tecnologias">
           {technologies.map(technology => (
@@ -107,7 +116,15 @@ export default function ProjectsPage() {
               gap={{ base: 8, xl: "32px 16px" }}
             >
               {projects[anchorName]?.map((project, index) => (
-                <ProjectCard key={project.name} index={index} {...project} />
+                <ProjectCard
+                  key={project.name}
+                  index={index}
+                  onViewProject={() => {
+                    setSelectedProject(project);
+                    onOpen();
+                  }}
+                  {...project}
+                />
               ))}
             </Flex>
           </ContentFile>
@@ -123,6 +140,11 @@ export default function ProjectsPage() {
           </Flex>
         )}
       </Flex>
+      <ProjectModal
+        isOpen={isOpen}
+        onClose={onClose}
+        selectedProject={selectedProject}
+      />
     </PageLayout>
   );
 }

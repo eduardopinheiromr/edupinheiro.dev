@@ -7,14 +7,8 @@ import profilePicture from "@assets/images/profile.webp";
 
 export default function HomePage() {
   return (
-    <PageLayout
-      animation="fadeIn 3s"
-      position="relative"
-      // h="full"
-      display="flex"
-    >
+    <PageLayout animation="fadeIn 3s" position="relative" display="flex">
       <Flex
-        // minH="240px"
         direction={{ base: "column", lg: "row" }}
         align="center"
         mx="auto"
