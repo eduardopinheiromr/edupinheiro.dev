@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaFolder, FaFolderOpen } from "react-icons/fa";
@@ -9,6 +9,8 @@ export default function SideMenu({ label, children }) {
   return (
     <Flex
       direction="column"
+      w="full"
+      maxW={{ base: "full", lg: "25%" }}
       // minW={{ base: "60px", md: "195.02" }}
     >
       <Flex
@@ -41,17 +43,19 @@ export default function SideMenu({ label, children }) {
             as={ChevronRightIcon}
           />
           <Icon as={isSideMenuOpen ? FaFolderOpen : FaFolder} />
-          <Text>{label}</Text>
+          <Text whiteSpace="nowrap">{label}</Text>
         </Flex>
         <Flex
           direction="column"
-          borderBottom="1px solid"
+          // borderBottom="1px solid"
           borderColor="blackline"
           animation={"growHeight .3s ease-in-out"}
           transition=".3s"
           // hidden={!isSideMenuOpen}
           opacity={isSideMenuOpen ? 1 : 0}
-          height={isSideMenuOpen ? 40 : "0px"}
+          height={isSideMenuOpen ? "auto" : 0}
+          overflowY="auto"
+          maxH="78vh"
         >
           {children}
         </Flex>

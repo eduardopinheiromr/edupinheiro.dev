@@ -22,14 +22,12 @@ export default function FormCode() {
     <Flex
       w={{ base: "full", lg: "50%" }}
       fontSize={{ base: "11px", sm: "14px" }}
+      pt={4}
+      pb={8}
+      bg="black"
+      flex="1"
     >
-      <Flex
-        direction="column"
-        p={{ base: 2, md: 8 }}
-        pr={0}
-        bg="black"
-        color="white"
-      >
+      <Flex direction="column" py={{ base: 2, md: 8 }} pl={4} color="white">
         <Text>1</Text>
         <Text>2</Text>
         <Flex h={4} />
@@ -45,10 +43,11 @@ export default function FormCode() {
         <Text>12</Text>
       </Flex>
       <Flex
-        overflowX="scroll"
+        overflowX="auto"
         flex="1"
         direction="column"
-        p={{ base: 2, md: 8 }}
+        py={{ base: 2, md: 8 }}
+        px={2}
         bg="black"
         fontWeight="bold "
       >

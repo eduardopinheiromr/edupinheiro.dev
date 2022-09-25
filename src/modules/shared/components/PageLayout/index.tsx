@@ -20,7 +20,7 @@ export default function PageLayout({ children, ...props }: Props) {
         bg="black"
         h="full"
         minH="100vh"
-        p={{ base: 0, md: "32px" }}
+        p={{ base: 0, lg: 4, xl: 8 }}
         position="relative"
         overflow="hidden"
       >

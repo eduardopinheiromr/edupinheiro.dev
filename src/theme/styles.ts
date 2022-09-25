@@ -99,6 +99,19 @@ export const styles = {
     //     transform: "rotate(0deg)",
     //   },
     // },
+    "@keyframes pulse": {
+      "0%": {
+        filter: "brightness(1)",
+      },
+
+      "50%": {
+        filter: "brightness(2)",
+      },
+
+      "100%": {
+        filter: "brightness(1)",
+      },
+    },
     "@keyframes pulseOnlyGradient": {
       "0%": {
         filter: "hue-rotate(0deg) brightness(1)",

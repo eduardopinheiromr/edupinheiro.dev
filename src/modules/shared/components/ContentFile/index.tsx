@@ -1,7 +1,7 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
 export default function ContentFile({ children }) {
@@ -33,19 +33,20 @@ export default function ContentFile({ children }) {
       borderRight="1px solid"
       borderColor="blackline"
       flex="1"
+      maxW={{ base: "full", lg: "75%" }}
     >
-      <Flex
-        direction="column"
-        borderRight="1px solid"
-        borderColor="blackline"
-        w="fit-content"
-      >
+      <Flex direction="column" borderRight="1px solid" borderColor="blackline">
         <Flex
-          overflowX="scroll"
-          maxW="100vw"
+          overflowX="auto"
+          flex="1"
           css={{
             "&::-webkit-scrollbar": {
-              height: 1,
+              height: "2px",
+            },
+            "@media (min-width: 767px)": {
+              "&::-webkit-scrollbar": {
+                height: "8px",
+              },
             },
           }}
         >
@@ -54,7 +55,7 @@ export default function ContentFile({ children }) {
               key={tab}
               cursor="pointer"
               align="center"
-              color="white"
+              color={currentTab === tab ? "white" : "text"}
               justify="space-between"
               bg={currentTab === tab && "#222"}
               // animation="fadeIn .3s"
@@ -65,6 +66,7 @@ export default function ContentFile({ children }) {
                 transition=".3s"
                 px={4}
                 py={2}
+                whiteSpace="nowrap"
               >
                 {tab}
               </Text>
@@ -87,10 +89,10 @@ export default function ContentFile({ children }) {
       <Flex
         borderWidth="1px 0 0 0"
         borderColor="blackline"
-        overflowY="scroll"
         p={{ base: 1, md: 4 }}
-        color="text"
+        pb={16}
         flex="1"
+        maxW={{ base: "99%", lg: "full" }}
         // maxW={{ base: "calc(100vw - 42px)", md: "calc(100vw - 173px)" }}
         css={{
           wordWrap: "break-word",
@@ -98,6 +100,7 @@ export default function ContentFile({ children }) {
             height: 2,
           },
         }}
+        color="#ccc"
       >
         {children}
       </Flex>
