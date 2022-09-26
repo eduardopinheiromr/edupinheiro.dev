@@ -1,13 +1,16 @@
-import { Flex } from "@chakra-ui/react";
+import { Heading, Stack, Text } from "@chakra-ui/react";
+import DynamicCodeBlock from "@modules/shared/components/DynamicCodeBlock";
 
 export const coreWebVitals: Content = {
-  content: `# sobre mim 
-
-sou desenvolvedor fullstack (frontend/backend)
-com experiência na criação de aplicativos Web com
-javascript / react.js / node.js / react native
-e outras bibliotecas/estruturas interessantes.`,
   render: () => {
-    return <Flex whiteSpace="pre">{coreWebVitals.content}</Flex>;
+    return (
+      <Stack gap={4} p={4} w="100%">
+        <Heading color="blue" animation="pulseOnlyGradient 10s infinite">
+          Como melhoro a performance e boas práticas para subir as notas no Core
+          Web Vitals
+        </Heading>
+        <Text>Em breve</Text>
+      </Stack>
+    );
   },
 };

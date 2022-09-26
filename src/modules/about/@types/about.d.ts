@@ -1,5 +1,5 @@
 type Content = {
   title?: string;
-  content: string;
+  content?: string;
   render: () => JSX.Element;
 };

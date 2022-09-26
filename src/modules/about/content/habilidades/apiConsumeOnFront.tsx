@@ -1,4 +1,4 @@
-import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Heading, Stack, Text } from "@chakra-ui/react";
 import DynamicCodeBlock from "@modules/shared/components/DynamicCodeBlock";
 
 export const apiConsumeOnFront = {
@@ -26,7 +26,9 @@ export const apiConsumeOnFront = {
     api.interceptors.request.use((request) => requestHandler(request));`;
     return (
       <Stack gap={4} p={4} w="100%">
-        <Heading>Como consumo APIs no front end</Heading>
+        <Heading color="blue" animation="pulseOnlyGradient 10s infinite">
+          Como consumo APIs no front end
+        </Heading>
         <Text>
           É comum consumirmos APIs no front end, seja para buscar ou enviar
           dados para o back end.

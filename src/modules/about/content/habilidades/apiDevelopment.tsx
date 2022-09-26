@@ -1,13 +1,15 @@
-import { Flex } from "@chakra-ui/react";
+import { Heading, Stack, Text } from "@chakra-ui/react";
+import DynamicCodeBlock from "@modules/shared/components/DynamicCodeBlock";
 
 export const apiDevelopment: Content = {
-  content: `# sobre mim 
-
-sou desenvolvedor fullstack (frontend/backend)
-com experiência na criação de aplicativos Web com
-javascript / react.js / node.js / react native
-e outras bibliotecas/estruturas interessantes.`,
   render: () => {
-    return <Flex whiteSpace="pre">{apiDevelopment.content}</Flex>;
+    return (
+      <Stack gap={4} p={4} w="100%">
+        <Heading color="blue" animation="pulseOnlyGradient 10s infinite">
+          Boas práticas no desenvolvimento de APIs
+        </Heading>
+        <Text>Em breve</Text>
+      </Stack>
+    );
   },
 };

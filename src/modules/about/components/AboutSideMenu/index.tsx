@@ -120,7 +120,7 @@ export default function AboutSideMenu() {
                   fontSize="14px"
                 >
                   <Icon as={FaMarkdown} />{" "}
-                  <Text>{name.replaceAll("-", " ")}</Text>
+                  <Text>{anchorName && String(name).replaceAll("-", " ")}</Text>
                 </Link>
               ))}
           </Flex>
