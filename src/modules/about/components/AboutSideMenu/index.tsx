@@ -36,7 +36,7 @@ export default function AboutSideMenu() {
                 });
               }
             }}
-            href={`#${name}`}
+            href={`#${sub ? anchorName : name}`}
             transition=".3s"
             bg={
               anchorName === name ? "rgba(255, 255, 255, 0.2)" : "transparent"
@@ -75,22 +75,12 @@ export default function AboutSideMenu() {
               {!sub && ".md"}
             </Text>
           </Link>
-          <Flex
-            direction="column"
-            bg="black"
-            animation={
-              sub && openedFolder === name
-                ? "growHeight .5s"
-                : "shrinkHeight .5s"
-            }
-            maxH={37 * sub?.length + "px"}
-          >
+          <Flex direction="column" bg="black">
             {openedFolder === name &&
               sub?.map((name, index) => (
                 <Link
                   display="flex"
-                  style={{ animationDelay: `${index * 0.025}s` }}
-                  animation="fadeIn .5s"
+                  animation="fadeIn .3s"
                   onClick={() => {
                     const hasTab = tabsOpened.includes(name);
                     set({

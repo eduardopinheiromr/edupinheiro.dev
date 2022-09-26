@@ -17,7 +17,7 @@ export default function HomePage() {
       >
         <Flex
           direction="column"
-          p={{ base: 0, md: 16 }}
+          px={{ base: 0, md: 8 }}
           h={{ base: undefined, md: "full" }}
         >
           <Text color="white" pl={1} fontSize="xl">
