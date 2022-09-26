@@ -1,14 +1,26 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
 export default function ContentFile({ children }) {
   const router = useRouter();
   const { tabsOpened, set } = useTabStore();
+  const tabsRef = useRef(null);
 
   const currentTab = decodeURI(router.asPath.split("#")[1]);
+
+  useEffect(() => {
+    if (currentTab) {
+      const currentTabDom = document.querySelector("." + currentTab) as any;
+      const currentTabLeft = currentTabDom?.offsetLeft;
+      tabsRef.current.scrollTo({
+        left: currentTabLeft,
+        behavior: "smooth",
+      });
+    }
+  }, [currentTab]);
 
   useEffect(() => {
     if (router.asPath.includes("#") && tabsOpened.length === 0) {
@@ -49,10 +61,12 @@ export default function ContentFile({ children }) {
               },
             },
           }}
+          ref={tabsRef}
         >
           {tabsOpened.map(tab => (
             <Flex
               key={tab}
+              className={tab}
               cursor="pointer"
               align="center"
               color={currentTab === tab ? "white" : "text"}

@@ -1,10 +1,20 @@
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { Flex, Icon, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { Flex, Icon, Text, useMediaQuery } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { FaFolder, FaFolderOpen } from "react-icons/fa";
 
 export default function SideMenu({ label, children }) {
+  const router = useRouter();
   const [isSideMenuOpen, setSideMenuOpen] = useState(true);
+  const [isDesktop] = useMediaQuery("(min-width: 768px)");
+  console.log({ isDesktop });
+  useEffect(() => {
+    router.events.on(
+      "hashChangeComplete",
+      () => !isDesktop && setSideMenuOpen(false)
+    );
+  }, []);
 
   return (
     <Flex

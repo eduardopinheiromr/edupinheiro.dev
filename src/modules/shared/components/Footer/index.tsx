@@ -21,7 +21,7 @@ export default function Footer() {
       w="full"
       bg="darkblue"
     >
-      <Flex>
+      <Flex w="full" display={{ base: "none", md: "flex" }}>
         <Flex
           h="40px"
           px={4}
@@ -53,8 +53,25 @@ export default function Footer() {
         borderTop={{ base: "1px solid", sm: "none" }}
         borderColor="blackline"
         w={{ base: "full", sm: "unset" }}
-        justify="center"
+        justify={{ base: "space-between", md: "center" }}
       >
+        <Flex display={{ base: "flex", md: "none" }} align="center">
+          {icons.map((item, index) => (
+            <Link key={item.href} href={item.href} target="_blank">
+              <Flex
+                _hover={{ color: "white", bg: "rgba(255,255,255,0.1)" }}
+                transition=".3s"
+                h="40px"
+                px={4}
+                borderRight={"1px solid"}
+                borderColor="blackline"
+                align="center"
+              >
+                <Icon as={item.icon} />
+              </Flex>
+            </Link>
+          ))}
+        </Flex>
         <Link
           key={socialLinks.github.href}
           href={socialLinks.github.href}
