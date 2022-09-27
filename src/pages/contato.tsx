@@ -21,34 +21,45 @@ export default function ContactPage() {
   const methods = useForm({
     resolver: contactResolver,
     mode: "onChange",
+    defaultValues: {
+      name: "Edu",
+      email: "edupro@mail.com",
+      message: "Hello, I'm interested in your services",
+    },
   });
 
   const onValidSubmit = async data => {
     setLoading(true);
-    setTimeout(() => {
-      toast({
-        title: "Mensagem enviada com sucesso!",
-        position: "top-right",
-        status: "success",
-        duration: 4000,
-        render: () => (
-          <Flex
-            p={2}
-            px={4}
-            bg="blue"
-            color="white"
-            borderRadius="md"
-            align="center"
-            gap={2}
-          >
-            <Text fontSize="28px">🎉</Text>
-            <Text>Mensagem enviada com sucesso!</Text>
-          </Flex>
-        ),
-      });
-      methods.reset();
-      setLoading(false);
-    }, 2000);
+    const sendContactMail = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...data, date: new Date().toISOString() }),
+    });
+
+    toast({
+      title: "Mensagem enviada com sucesso!",
+      position: "top-right",
+      status: "success",
+      duration: 4000,
+      render: () => (
+        <Flex
+          p={2}
+          px={4}
+          bg="blue"
+          color="white"
+          borderRadius="md"
+          align="center"
+          gap={2}
+        >
+          <Text fontSize="28px">🎉</Text>
+          <Text>Mensagem enviada com sucesso!</Text>
+        </Flex>
+      ),
+    });
+    methods.reset();
+    setLoading(false);
   };
   return (
     <PageLayout h="full" flex="1">

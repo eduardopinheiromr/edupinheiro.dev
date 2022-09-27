@@ -8,7 +8,7 @@ export default function SideMenu({ label, children }) {
   const router = useRouter();
   const [isSideMenuOpen, setSideMenuOpen] = useState(true);
   const [isDesktop] = useMediaQuery("(min-width: 768px)");
-  console.log({ isDesktop });
+
   useEffect(() => {
     router.events.on(
       "hashChangeComplete",
