@@ -12,10 +12,6 @@ import { Link } from "@modules/shared/components/Link";
 const Experience = () => {
   return (
     <Container color="white">
-      <a className="anchor" id="experiencia"></a>
-      <Heading textAlign="center" mb={8}>
-        Experiência profissional
-      </Heading>
       <VerticalTimeline>
         {experience.map((job, key) => (
           <VerticalTimelineElement

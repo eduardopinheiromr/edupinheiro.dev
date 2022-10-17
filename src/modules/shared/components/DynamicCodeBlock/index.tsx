@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 
 const CustomCodeBlock = dynamic(import("./CustomCodeBlock"), {
   loading: () => (
@@ -15,13 +14,14 @@ const CustomCodeBlock = dynamic(import("./CustomCodeBlock"), {
   ),
 });
 
-type Props = {
+export type CodeBlockProps = {
   language?: string;
   snippet: string;
 };
 
-export default function DynamicCodeBlock({ language, snippet }: Props) {
-  const router = useRouter();
-
+export default function DynamicCodeBlock({
+  language,
+  snippet,
+}: CodeBlockProps) {
   return <CustomCodeBlock {...{ language, snippet }} />;
 }

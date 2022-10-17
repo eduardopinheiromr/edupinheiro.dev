@@ -4,6 +4,7 @@ import { HiMenu } from "react-icons/hi";
 export default function MobileMenu({ isOpen, onOpen, onClose }) {
   return (
     <Button
+      aria-label="Menu de navegação"
       onClick={isOpen ? onClose : onOpen}
       h="52px"
       roundedRight="md"

@@ -7,6 +7,7 @@ import { chakraTradeoff } from "./habilidades/chakraTradeoff";
 import { projectStructure } from "./habilidades/projectStructure";
 import { seoMetatags } from "./habilidades/seoMetatags";
 import { coreWebVitals } from "./habilidades/coreWebVitals";
+import { experiencia } from "./experiencia";
 
 export const content = {
   bio,
@@ -18,4 +19,5 @@ export const content = {
   "como-estruturo-meus-projetos": projectStructure,
   "metatags-de-SEO": seoMetatags,
   "Core-Web-Vitals": coreWebVitals,
+  experiência: experiencia,
 };

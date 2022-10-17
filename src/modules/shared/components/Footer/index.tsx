@@ -1,10 +1,11 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
-import { socialLinks } from "@modules/home/constants/socialLinks";
+import { socialLinks } from "@modules/about/constants/socialLinks";
 import { navigation } from "@modules/shared/constants/navigation";
 import { Link } from "@modules/shared/components/Link";
 
 export default function Footer() {
   const icons = Object.values(socialLinks).slice(1);
+  const names = Object.keys(socialLinks).slice(1);
 
   return (
     <Flex
@@ -33,7 +34,12 @@ export default function Footer() {
         </Flex>
         <Flex align="center">
           {icons.map((item, index) => (
-            <Link key={item.href} href={item.href} target="_blank">
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-label={names[index]}
+              target="_blank"
+            >
               <Flex
                 _hover={{ color: "white", bg: "rgba(255,255,255,0.1)" }}
                 transition=".3s"

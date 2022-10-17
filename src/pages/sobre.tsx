@@ -6,9 +6,15 @@ import { useEffect } from "react";
 import SideMenu from "@modules/shared/components/SideMenu";
 import dynamic from "next/dynamic";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
-import AboutSideMenu from "@modules/about/components/AboutSideMenu";
+// import AboutSideMenu from "@modules/about/components/AboutSideMenu";
 import { content } from "@modules/about/content";
 
+const AboutSideMenu = dynamic(
+  () => import("@modules/about/components/AboutSideMenu"),
+  {
+    ssr: false,
+  }
+);
 const ContentFile = dynamic(
   () => import("@modules/shared/components/ContentFile"),
   { ssr: false }
@@ -31,7 +37,7 @@ export default function AboutMe() {
 
   return (
     <PageLayout h="full">
-      <Flex flex="1" direction={{ base: "column", md: "row" }} w="100%">
+      <Flex flex="1" direction={{ base: "column", lg: "row" }} w="100%">
         <SideMenu label="dados-pessoais">
           <AboutSideMenu />
         </SideMenu>

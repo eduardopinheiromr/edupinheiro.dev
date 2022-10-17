@@ -1,13 +1,13 @@
 export const colors = {
   black: "#010C15",
   darkblue: "#011627",
-  blue: "#4D5BCE",
+  blue: "#717bd1", //"#4D5BCE",
   constant: "#43D9AD",
   orange: "#FEA55F",
   pink: "#C98BDF",
   string: "#E99287",
   blackline: "#1E2D3D",
-  text: "#607B96",
+  text: "#84a4c4", //"#607B96",
   greendient:
     "linear-gradient(135deg, #00FFBF 0%, #31D8B3 33.33%, #1C987D 100%)",
   greenScheme: {

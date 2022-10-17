@@ -12,6 +12,9 @@ export const styles = {
     "::-webkit-scrollbar-thumb": {
       background: "lightgray",
     },
+    ".vertical-timeline-element-date": {
+      mx: { base: 0, lg: 4 },
+    },
     textarea: {
       "::-webkit-scrollbar": {
         width: "4px",
@@ -112,6 +115,20 @@ export const styles = {
         filter: "brightness(1)",
       },
     },
+    "@keyframes blur": {
+      "0%": {
+        opacity: 0,
+        transform: "translateX(-8px)",
+        filter: "blur(8px)",
+      },
+      "30%": {
+        opacity: 1,
+      },
+      "100%": {
+        transform: "translateX(0px)",
+        filter: "blur(0px)",
+      },
+    },
     "@keyframes pulseOnlyGradient": {
       "0%": {
         filter: "hue-rotate(0deg) brightness(1)",
@@ -122,6 +139,8 @@ export const styles = {
       },
 
       "100%": {
+        blur: 0,
+        opacity: 1,
         filter: "hue-rotate(360deg) brightness(1)",
       },
     },

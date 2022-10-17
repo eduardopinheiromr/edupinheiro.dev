@@ -1,6 +1,6 @@
 import { Flex, Stack, Text } from "@chakra-ui/react";
 import PageLayout from "@modules/shared/components/PageLayout";
-import { socialLinks } from "@modules/home/constants/socialLinks";
+import { socialLinks } from "@modules/about/constants/socialLinks";
 import Variable from "@modules/shared/components/Variable";
 import Image from "next/image";
 import profilePicture from "@assets/images/profile.webp";

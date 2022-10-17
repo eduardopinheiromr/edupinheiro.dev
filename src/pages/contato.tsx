@@ -21,11 +21,6 @@ export default function ContactPage() {
   const methods = useForm({
     resolver: contactResolver,
     mode: "onChange",
-    defaultValues: {
-      name: "Edu",
-      email: "edupro@mail.com",
-      message: "Hello, I'm interested in your services",
-    },
   });
 
   const onValidSubmit = async data => {

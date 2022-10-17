@@ -3,10 +3,8 @@ import { FaFolder, FaFolderOpen, FaMarkdown } from "react-icons/fa";
 
 import { useRouter } from "next/router";
 import { Link } from "@modules/shared/components/Link";
-import { useEffect, useState } from "react";
-import SideMenu from "@modules/shared/components/SideMenu";
+import { useState } from "react";
 import { anchors } from "@modules/shared/constants/anchors";
-import dynamic from "next/dynamic";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
@@ -19,7 +17,7 @@ export default function AboutSideMenu() {
   const decodedURI = decodeURI(router.asPath.split("#")[1]);
   const anchorName = decodedURI === "undefined" ? undefined : decodedURI;
   return (
-    <>
+    <div style={{ animation: "fadeIn .7s" }}>
       {anchors.map(({ name, sub }) => (
         <div key={name}>
           <Link
@@ -36,7 +34,7 @@ export default function AboutSideMenu() {
                 });
               }
             }}
-            href={`#${sub ? anchorName : name}`}
+            href={anchorName ? `#${sub ? anchorName : name}` : ""}
             transition=".3s"
             bg={
               anchorName === name ? "rgba(255, 255, 255, 0.2)" : "transparent"
@@ -109,13 +107,13 @@ export default function AboutSideMenu() {
                   }}
                   fontSize="14px"
                 >
-                  <Icon as={FaMarkdown} />{" "}
-                  <Text>{anchorName && String(name).replaceAll("-", " ")}</Text>
+                  <Icon as={FaMarkdown} />
+                  <Text>{String(name).replaceAll("-", " ")}</Text>
                 </Link>
               ))}
           </Flex>
         </div>
       ))}
-    </>
+    </div>
   );
 }

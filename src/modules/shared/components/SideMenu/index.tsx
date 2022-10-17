@@ -9,20 +9,22 @@ export default function SideMenu({ label, children }) {
   const [isSideMenuOpen, setSideMenuOpen] = useState(true);
   const [isDesktop] = useMediaQuery("(min-width: 768px)");
 
+  const [lastHash, setLastHash] = useState(
+    typeof window !== "undefined" ? window.location.hash : ""
+  );
+
   useEffect(() => {
-    router.events.on(
-      "hashChangeComplete",
-      () => !isDesktop && setSideMenuOpen(false)
+    setSideMenuOpen(isDesktop);
+  }, [router.isReady, isDesktop, lastHash]);
+
+  useEffect(() => {
+    router.events.on("hashChangeComplete", route =>
+      setLastHash("#" + route.split("#")[1])
     );
   }, []);
 
   return (
-    <Flex
-      direction="column"
-      w="full"
-      maxW={{ base: "full", lg: "25%" }}
-      // minW={{ base: "60px", md: "195.02" }}
-    >
+    <Flex direction="column" w="full" maxW={{ base: "full", lg: "25%" }}>
       <Flex
         direction="column"
         justify="flex-start"
@@ -43,9 +45,6 @@ export default function SideMenu({ label, children }) {
           gap={2}
           onClick={() => setSideMenuOpen(!isSideMenuOpen)}
           as="button"
-
-          // maxW={{ base: "60px", md: "195.02" }}
-          // display={{ base: "none", md: "flex" }}
         >
           <Icon
             transition=".3s"
