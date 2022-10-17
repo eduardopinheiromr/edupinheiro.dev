@@ -9,43 +9,12 @@ import { useEffect, useState } from "react";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
 import ProjectCard from "@modules/projects/components/ProjectCard";
 import ProjectModal from "@modules/projects/components/ProjectModal";
+import { reactProjects } from "@modules/projects/constants/react";
+import { nodeProjects } from "@modules/projects/constants/node";
 
-const multiply = (times, obj) => {
-  return "."
-    .repeat(times)
-    .split("")
-    .map(_ => obj);
-};
-
-const mockedProject: Project = {
-  name: "React Boilerplate",
-  description:
-    "A boilerplate to start a React project with TypeScript, Chakra UI, Next.js, ESLint, Prettier, Jest, React Testing Library, Storybook, Husky, Lint Staged, Commitizen, Commitlint, Conventional Commits, and more.",
-  links: [
-    { name: "github", href: "" },
-    { name: "npm", href: "" },
-    { name: "demo online", href: "" },
-  ],
-  image: "/images/next.jpeg",
-  technologies: [
-    "react",
-    "typescript",
-    "chakra-ui",
-    "nextjs",
-    "eslint",
-    "prettier",
-    "jest",
-    "react-testing-library",
-    "storybook",
-    "husky",
-    "lint-staged",
-    "commitizen",
-    "commitlint",
-    "conventional-commits",
-  ],
-};
 const projects = {
-  react: [...multiply(10, mockedProject)],
+  react: reactProjects,
+  "node.js": nodeProjects,
 };
 
 export default function ProjectsPage() {

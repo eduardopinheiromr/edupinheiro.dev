@@ -1,4 +1,4 @@
-import { Flex, Icon, Text } from "@chakra-ui/react";
+import { Flex, Icon, IconButton, Text } from "@chakra-ui/react";
 import { socialLinks } from "@modules/about/constants/socialLinks";
 import { navigation } from "@modules/shared/constants/navigation";
 import { Link } from "@modules/shared/components/Link";
@@ -37,20 +37,19 @@ export default function Footer() {
             <Link
               key={item.href}
               href={item.href}
-              aria-label={names[index]}
               target="_blank"
+              _hover={{ color: "white", bg: "rgba(255,255,255,0.1)" }}
+              transition=".3s"
+              h="40px"
+              px={4}
+              borderRight={"1px solid"}
+              borderColor="blackline"
+              display="flex"
+              alignItems="center"
+              aria-label={names[index].toUpperCase()}
+              rel="noopener noreferrer"
             >
-              <Flex
-                _hover={{ color: "white", bg: "rgba(255,255,255,0.1)" }}
-                transition=".3s"
-                h="40px"
-                px={4}
-                borderRight={"1px solid"}
-                borderColor="blackline"
-                align="center"
-              >
-                <Icon as={item.icon} />
-              </Flex>
+              <IconButton aria-label={names[index]} icon={<item.icon />} />
             </Link>
           ))}
         </Flex>
@@ -63,18 +62,21 @@ export default function Footer() {
       >
         <Flex display={{ base: "flex", md: "none" }} align="center">
           {icons.map((item, index) => (
-            <Link key={item.href} href={item.href} target="_blank">
-              <Flex
-                _hover={{ color: "white", bg: "rgba(255,255,255,0.1)" }}
-                transition=".3s"
-                h="40px"
-                px={4}
-                borderRight={"1px solid"}
-                borderColor="blackline"
-                align="center"
-              >
-                <Icon as={item.icon} />
-              </Flex>
+            <Link
+              key={item.href}
+              href={item.href}
+              target="_blank"
+              _hover={{ color: "white", bg: "rgba(255,255,255,0.1)" }}
+              transition=".3s"
+              h="40px"
+              px={4}
+              borderRight={"1px solid"}
+              borderColor="blackline"
+              display="flex"
+              alignItems="center"
+              aria-label={names[index].toUpperCase()}
+            >
+              <IconButton aria-label={names[index]} icon={<item.icon />} />
             </Link>
           ))}
         </Flex>

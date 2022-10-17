@@ -15,7 +15,7 @@ export default function PageLayout({ children, ...props }: Props) {
 
   return (
     <>
-      <PageTags title={"ep.dev_" + title?.label} description={title?.label} />
+      <PageTags title={"ep.dev_" + title?.label} />
       <Flex
         bg="black"
         h="full"

@@ -26,7 +26,7 @@ export default function HomePage() {
           <Text
             lineHeight={1}
             color="orange"
-            fontSize={{ base: "3xl", sm: "5xl", md: "6xl" }}
+            fontSize={{ base: "2xl", sm: "5xl", md: "6xl" }}
             animation="pulseOnlyGradient 15s infinite"
           >
             Eduardo Pinheiro
@@ -36,15 +36,16 @@ export default function HomePage() {
             mt={2}
             lineHeight={1}
             color="blue"
-            fontSize={{ base: "xl", md: "3xl" }}
+            fontSize={{ base: "lg", md: "3xl" }}
           >
             &gt; Desenvolvedor Front-end
           </Text>
 
           <Stack
             mt={8}
-            fontSize={{ base: "3.3vw", sm: 14, xl: 18 }}
+            fontSize={{ base: 12, sm: 14, xl: 18 }}
             whiteSpace={{ base: "unset", md: "nowrap" }}
+            gap={4}
           >
             <Variable name="linkedin" link={socialLinks.linkedin.href} />
             <Variable name="github" link={socialLinks.github.href} />
@@ -94,6 +95,8 @@ export default function HomePage() {
               alt="Foto de perfil de Eduardo Pinheiro"
               src={profilePicture}
               objectFit="contain"
+              height="400px"
+              width="400px"
             />
           </Flex>
         </Flex>

@@ -30,16 +30,16 @@ export default function ProjectCard({
         color="blue"
         onClick={onViewProject}
       >
-        Projeto {index + 1}{" "}
+        #{index + 1}{" "}
         <Text as="span" color="text">
-          {"//"} {name}
+          {name}
         </Text>
       </Heading>
 
       <Flex direction="column" gap={4} rounded="lg" shadow="xl">
         <Image src={image} alt={name} />
-        <Flex direction="column" gap={4} p={4}>
-          <Text color="text" fontSize="14px">
+        <Flex direction="column" gap={4} px={2} py={4}>
+          <Text color="text" fontSize="13px" minH="120px">
             {description}
           </Text>
           <Button variant="primary" onClick={onViewProject}>

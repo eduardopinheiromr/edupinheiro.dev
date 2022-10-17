@@ -21,7 +21,7 @@ export default function FormCode() {
   return (
     <Flex
       w={{ base: "full", lg: "50%" }}
-      fontSize={{ base: "11px", sm: "14px" }}
+      fontSize={{ base: "12px", sm: "14px" }}
       pt={4}
       pb={8}
       bg="black"

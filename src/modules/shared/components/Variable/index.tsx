@@ -28,7 +28,7 @@ export default function Variable({ name, isLink, value, link }: Props) {
               color="string"
               _hover={{ borderBottom: "1px solid", filter: "brightness(.7)" }}
             >
-              &quot;{link.replace("https://", "")}&quot;
+              &quot;{link.replace("https://", "")}&quot;;
             </Text>
           </Link>
         ))}

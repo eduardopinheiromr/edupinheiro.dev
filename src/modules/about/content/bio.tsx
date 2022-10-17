@@ -12,8 +12,30 @@ export const bio: Content = {
           Sou apaixonado por tecnologia, movido pela curiosidade e desafios.
           <br />
           <br />
+          Tive muitos interesses profissionais antes de encontrar meu lugar na
+          programação.
+          <br />
+          <br />
+          No meu último trabalho antes de conhecer o universo digital,
+          empreendia vendendo doces e sanduíches na rua, em que eu mesmo criava
+          as receitas, produzia e vendia. Fiz as redes sociais e também, criava
+          os posts para divulgar minha marca.
+          <br />
+          <br />
+          Minha veia empreendedora foi forjada na dificuldade, e sou eternamente
+          grato a toda minha jornada. Tudo que aprendi, contribuiu para meu
+          desenvolvimento. Me apaixonei por resolver problemas criando soluções
+          escaláveis.
+          <br />
+          <br />
           Comecei a carreira focado em desenvolvimento Front End, mas logo me
           interessei por desenvolvimento Back End e DevOps.
+          <br />
+          <br />
+          Dou muito valor às soft skills. Acredito muito no potencial
+          individual/coletivo quando tomamos consciência de nossa humanidade e
+          agimos a favor dela, tornando ambientes profissionais muito mais
+          seguros e confortáveis a qualquer pessoa.
           <br />
           <br />
           Atuei em projetos de diversos tamanhos e em diferentes setores, como

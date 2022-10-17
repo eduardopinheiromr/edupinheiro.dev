@@ -8,6 +8,7 @@ import { projectStructure } from "./habilidades/projectStructure";
 import { seoMetatags } from "./habilidades/seoMetatags";
 import { coreWebVitals } from "./habilidades/coreWebVitals";
 import { experiencia } from "./experiencia";
+import { educacao } from "./educacao";
 
 export const content = {
   bio,
@@ -20,4 +21,5 @@ export const content = {
   "metatags-de-SEO": seoMetatags,
   "Core-Web-Vitals": coreWebVitals,
   experiência: experiencia,
+  educação: educacao,
 };

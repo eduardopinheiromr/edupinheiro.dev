@@ -3,12 +3,13 @@ import { useRouter } from "next/router";
 
 type Props = {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
 };
 
 const DEFAULT = {
-  image: "/images/profile.webp",
+  color: "#010C15",
+  image: "/images/profile.png",
   description:
     "Desenvolvedor JavaScript/Typescript, Fullstack. Site com informações sobre mim, portifólio e contatos.",
 };
@@ -49,9 +50,9 @@ const PageTags = ({ title, description, image }: Props) => {
       <meta property="twitter:image" content={image ?? DEFAULT.image} />
 
       <link rel="canonical" href={url + router.asPath} />
-      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="msapplication-TileColor" content={DEFAULT.color} />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content={DEFAULT.color} />
     </Head>
   );
 };
