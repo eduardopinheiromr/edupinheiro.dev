@@ -3,14 +3,9 @@ import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
 type Props = {
   title: string;
   children: React.ReactNode;
-  extraChildren?: React.ReactNode;
 };
 
-export default function ContentLayout({
-  title,
-  children,
-  extraChildren,
-}: Props) {
+export default function ContentLayout({ title, children }: Props) {
   return (
     <Stack gap={4} p={4} w="100%" position="relative">
       <div key={window.location.hash} style={{ animation: "blur .7s" }}>
@@ -22,8 +17,7 @@ export default function ContentLayout({
           {title}
         </Heading>
       </div>
-      <Text>{children}</Text>
-      {extraChildren}
+      {children}
     </Stack>
   );
 }

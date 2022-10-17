@@ -1,6 +1,5 @@
-import { Heading, Stack, Text } from "@chakra-ui/react";
+import {  Text } from "@chakra-ui/react";
 import ContentLayout from "@modules/about/components/ContentLayout";
-import DynamicCodeBlock from "@modules/shared/components/DynamicCodeBlock";
 import { ChakraCodeBlock } from "@modules/shared/components/DynamicCodeBlock/ChakraCodeBlock";
 
 export const apiConsumeOnFront = {
@@ -36,23 +35,25 @@ export const apiConsumeOnFront = {
     api.interceptors.request.use((request) => requestHandler(request));`;
     return (
       <ContentLayout title="Como consumo APIs no front end">
-        É comum consumirmos APIs no front end, seja para buscar ou enviar dados
-        para o back end.
-        <br />
-        <br />
-        Para isso, utilizamos o fetch, que é uma API nativa do JavaScript.
-        <br />
-        <br />
-        Em projetos com necessidade de consumir muitos endpoints, utilizo o
-        axios para criar a instância do adaptador da API.
-        <br />
-        <br />
-        O axios traz facilidade também para implementar interceptors, que são
-        funções que são executadas antes ou depois de uma requisição.
-        <br />
-        <br />
-        Um exemplo de interceptor que utilizo é para adicionar o token de
-        autenticação no header da requisição.
+        <Text>
+          É comum consumirmos APIs no front end, seja para buscar ou enviar
+          dados para o back end.
+          <br />
+          <br />
+          Para isso, utilizamos o fetch, que é uma API nativa do JavaScript.
+          <br />
+          <br />
+          Em projetos com necessidade de consumir muitos endpoints, utilizo o
+          axios para criar a instância do adaptador da API.
+          <br />
+          <br />
+          O axios traz facilidade também para implementar interceptors, que são
+          funções que são executadas antes ou depois de uma requisição.
+          <br />
+          <br />
+          Um exemplo de interceptor que utilizo é para adicionar o token de
+          autenticação no header da requisição.
+        </Text>
         <ChakraCodeBlock mt={8} language="javascript" snippet={snippet} />
       </ContentLayout>
     );

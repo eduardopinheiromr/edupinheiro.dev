@@ -7,10 +7,16 @@ type Props = {
   image?: string;
 };
 
+const DEFAULT = {
+  image: "/images/profile.webp",
+  description:
+    "Desenvolvedor JavaScript/Typescript, Fullstack. Site com informações sobre mim, portifólio e contatos.",
+};
+
 const PageTags = ({ title, description, image }: Props) => {
   const router = useRouter();
   const url = process.env.NEXT_PUBLIC_BASE_URL;
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
+
   return (
     <Head>
       {/* Primary Meta Tags */}
@@ -21,13 +27,7 @@ const PageTags = ({ title, description, image }: Props) => {
         name="author"
         content="Eduardo Pinheiro - https://edupinheiro.dev/"
       />
-      <meta
-        name="description"
-        content={
-          description ||
-          "Desenvolvedor JavaScript/Typescript, Fullstack. Site com informações sobre mim, portifólio e contatos."
-        }
-      />
+      <meta name="description" content={description || DEFAULT.description} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -35,30 +35,18 @@ const PageTags = ({ title, description, image }: Props) => {
       <meta property="og:title" content={title} />
       <meta
         property="og:description"
-        content={
-          description ||
-          "Desenvolvedor JavaScript/Typescript, Fullstack. Site com informações sobre mim, portifólio e contatos."
-        }
+        content={description || DEFAULT.description}
       />
-      <meta
-        property="og:image"
-        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-      />
+      <meta property="og:image" content={image ?? DEFAULT.image} />
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={url + router.asPath} />
       <meta property="twitter:title" content={title} />
       <meta
         property="twitter:description"
-        content={
-          description ||
-          "Desenvolvedor JavaScript/Typescript, Fullstack. Site com informações sobre mim, portifólio e contatos."
-        }
+        content={description || DEFAULT.description}
       />
-      <meta
-        property="twitter:image"
-        content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-      />
+      <meta property="twitter:image" content={image ?? DEFAULT.image} />
 
       <link rel="canonical" href={url + router.asPath} />
       <meta name="msapplication-TileColor" content="#ffffff" />

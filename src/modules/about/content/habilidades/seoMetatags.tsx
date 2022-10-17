@@ -22,33 +22,35 @@ export const seoMetatags: Content = {
     });
     return (
       <ContentLayout title="Quais as principais tags de SEO utilizo nos projetos indexados para buscadores">
-        Para o favicon, gosto de utilizar o site{" "}
-        <Link
-          color="blue"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://realfavicongenerator.net/"
-        >
-          RealFaviconGenerator.net
-        </Link>
-        , que gera todos os arquivos e tags necessários para os principais
-        navegadores e dispositivos.
-        <br />
-        <br />
-        Para as mídias sociais, há também uma excelente ferramenta gratuita no
-        site{" "}
-        <Link
-          color="blue"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://metatags.io/"
-        >
-          metatags.io
-        </Link>
-        , que gera as tags necessárias para o Facebook, Twitter, Google,
-        Linkedin, Pinterest e Slack.
-        <br />
-        <br />
+        <Text>
+          Para o favicon, gosto de utilizar o site{" "}
+          <Link
+            color="blue"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://realfavicongenerator.net/"
+          >
+            RealFaviconGenerator.net
+          </Link>
+          , que gera todos os arquivos e tags necessários para os principais
+          navegadores e dispositivos.
+          <br />
+          <br />
+          Para as mídias sociais, há também uma excelente ferramenta gratuita no
+          site{" "}
+          <Link
+            color="blue"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://metatags.io/"
+          >
+            metatags.io
+          </Link>
+          , que gera as tags necessárias para o Facebook, Twitter, Google,
+          Linkedin, Pinterest e Slack.
+          <br />
+          <br />
+        </Text>
         <Stack gap={8}>
           <Stack spacing={4}>
             <Heading color="green">Tags comuns:</Heading>

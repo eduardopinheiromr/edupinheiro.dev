@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 
 const TextLikeObjectAttribute = ({ variableName, value }) => {
   return (
-    <Text color="text">
+    <Text color="text" as="span">
       <Text as="span" color="blue">
         {variableName}
       </Text>
@@ -55,7 +55,7 @@ export default function FormCode() {
           name="button"
           isLink={false}
           value={
-            <Text color="blue">
+            <Text color="blue" as="span">
               document.querySelector(
               <Text as="span" color="orange">
                 {"'"}#submitButton{"'"}

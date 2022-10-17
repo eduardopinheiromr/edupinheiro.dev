@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import SideMenu from "@modules/shared/components/SideMenu";
 import dynamic from "next/dynamic";
 import { useTabStore } from "@modules/shared/stores/useTabStore";
-// import AboutSideMenu from "@modules/about/components/AboutSideMenu";
 import { content } from "@modules/about/content";
 
 const AboutSideMenu = dynamic(

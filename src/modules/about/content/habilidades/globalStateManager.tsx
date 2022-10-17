@@ -1,3 +1,4 @@
+import { Text } from "@chakra-ui/react";
 import ContentLayout from "@modules/about/components/ContentLayout";
 import { ChakraCodeBlock } from "@modules/shared/components/DynamicCodeBlock/ChakraCodeBlock";
 
@@ -51,31 +52,33 @@ export const useAuthStore = create(
 );`;
     return (
       <ContentLayout title="Gerenciando o estado global com Zustand">
-        Quando se trata de gerenciar o estado global de uma aplicação, a
-        primeira coisa que vem na cabeça é utilizar o Redux, que é uma
-        biblioteca que permite a criação de um store global, que pode ser
-        acessado por qualquer componente da aplicação.
-        <br />
-        <br />
-        Com isso, é possível compartilhar o estado entre os componentes, e
-        consequentemente, evitar a prop drilling.
-        <br />
-        <br />
-        Porém, o Redux é uma biblioteca muito robusta, que possui muitas
-        funcionalidades, e que pode ser um pouco complexa, verbosa e com muito
-        código boilerplate.
-        <br />
-        <br />
-        Podemos utilizar o Zustand, que é uma biblioteca muito leve, que possui
-        apenas 1.5kb, e que possui as funcionalidades necessárias para gerenciar
-        o estado global, além de plugins para persistência automática no
-        localStorage.
-        <br />
-        <br />
-        Para utilizar o Zustand, precisamos criar um hook, que é uma função que
-        retorna um estado, e uma função para atualizar esse estado.
-        <br />
-        <br />
+        <Text>
+          Quando se trata de gerenciar o estado global de uma aplicação, a
+          primeira coisa que vem na cabeça é utilizar o Redux, que é uma
+          biblioteca que permite a criação de um store global, que pode ser
+          acessado por qualquer componente da aplicação.
+          <br />
+          <br />
+          Com isso, é possível compartilhar o estado entre os componentes, e
+          consequentemente, evitar a prop drilling.
+          <br />
+          <br />
+          Porém, o Redux é uma biblioteca muito robusta, que possui muitas
+          funcionalidades, e que pode ser um pouco complexa, verbosa e com muito
+          código boilerplate.
+          <br />
+          <br />
+          Podemos utilizar o Zustand, que é uma biblioteca muito leve, que
+          possui apenas 1.5kb, e que possui as funcionalidades necessárias para
+          gerenciar o estado global, além de plugins para persistência
+          automática no localStorage.
+          <br />
+          <br />
+          Para utilizar o Zustand, precisamos criar um hook, que é uma função
+          que retorna um estado, e uma função para atualizar esse estado.
+          <br />
+          <br />
+        </Text>
         <ChakraCodeBlock
           mt={8}
           language="typescript"

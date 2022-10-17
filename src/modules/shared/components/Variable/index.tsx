@@ -10,7 +10,7 @@ type Props = {
 
 export default function Variable({ name, isLink, value, link }: Props) {
   return (
-    <Text>
+    <Text as="span">
       <Text as="span" color="blue">
         const
       </Text>{" "}
