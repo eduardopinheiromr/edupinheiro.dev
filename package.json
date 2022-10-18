@@ -16,8 +16,6 @@
     "@fontsource/fira-code": "^4.5.11",
     "@fontsource/work-sans": "^4.5.12",
     "@hookform/resolvers": "^2.9.8",
-    "add": "^2.0.6",
-    "axios": "^0.27.2",
     "framer-motion": "^6.3.0",
     "next": "latest",
     "node-mailjet": "^5.1.1",

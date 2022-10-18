@@ -4,11 +4,13 @@ export const nodeProjects: Project[] = [
     description:
       "Back end que criei para meu projeto fullstack 'Central de Atendimento com Whatsapp', utilizando o Twilio como gateway, WebHooks e WebSocket para notificações em tempo real.",
     links: [
-      { name: "github", href: "" },
-      { name: "npm", href: "" },
-      { name: "demo online", href: "" },
+      {
+        name: "github",
+        href: "https://github.com/eduardopinheiromr/chat-whatsapp",
+      },
     ],
-    image: "/images/next.jpeg",
+    image: "/images/node/whatsapp.png",
+    imageString: "/images/node/whatsapp.png",
     technologies: [
       "react",
       "typescript",
@@ -27,7 +29,8 @@ export const nodeProjects: Project[] = [
       { name: "npm", href: "" },
       { name: "demo online", href: "" },
     ],
-    image: "/images/next.jpeg",
+    image: "/images/node/scheduling.png",
+    imageString: "/images/node/scheduling.png",
     technologies: [
       "react",
       "typescript",
@@ -46,7 +49,8 @@ export const nodeProjects: Project[] = [
       { name: "npm", href: "" },
       { name: "demo online", href: "" },
     ],
-    image: "/images/next.jpeg",
+    image: "/images/node/image-converter.png",
+    imageString: "/images/node/image-converter.png",
     technologies: [
       "react",
       "typescript",
@@ -65,7 +69,8 @@ export const nodeProjects: Project[] = [
       { name: "npm", href: "" },
       { name: "demo online", href: "" },
     ],
-    image: "/images/next.jpeg",
+    image: "/images/node/node-auth.png",
+    imageString: "/images/node/node-auth.png",
     technologies: [
       "react",
       "typescript",

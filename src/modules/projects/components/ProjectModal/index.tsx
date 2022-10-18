@@ -3,10 +3,9 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
+  Image,
   ModalBody,
   ModalCloseButton,
-  Image,
   Text,
   Flex,
   Badge,
@@ -41,10 +40,12 @@ export default function ProjectModal({
         <ModalBody>
           <Flex direction="column" gap={8} pb={4}>
             <Image
-              src={selectedProject?.image}
+              src={selectedProject?.imageString}
               alt={selectedProject?.name}
               objectFit="contain"
-              w="full"
+              width="100%"
+              height="400px"
+              loading="lazy"
             />
             <Text color="white">{selectedProject?.description}</Text>
 

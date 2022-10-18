@@ -36,7 +36,7 @@ export default function ProjectsPage() {
 
   return (
     <PageLayout h="full">
-      <Flex flex="1" direction={{ base: "column", md: "row" }}>
+      <Flex flex="1" direction={{ base: "column", lg: "row" }}>
         <SideMenu label="tecnologias">
           {technologies.map(technology => (
             <Link
@@ -83,6 +83,7 @@ export default function ProjectsPage() {
               flexWrap="wrap"
               p={{ base: 4, xl: 0 }}
               gap={{ base: 8, xl: "32px 16px" }}
+              justify={{ base: "center", lg: "flex-start" }}
             >
               {projects[anchorName]?.map((project, index) => (
                 <ProjectCard

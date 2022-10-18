@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Button, Flex, Heading, Text } from "@chakra-ui/react";
+import Image from "next/image";
 
 export default function ProjectCard({
   index,
@@ -37,7 +37,22 @@ export default function ProjectCard({
       </Heading>
 
       <Flex direction="column" gap={4} rounded="lg" shadow="xl">
-        <Image src={image} alt={name} />
+        {/* <Flex
+          h="168px"
+          w="300px"
+          bgPosition="top"
+          backgroundImage={image}
+          backgroundRepeat="no-repeat"
+          bgSize="cover"
+          backgroundPosition="top"
+        /> */}
+        <Image
+          height="168px"
+          width="300px"
+          objectFit="cover"
+          src={image}
+          alt={name}
+        />
         <Flex direction="column" gap={4} px={2} py={4}>
           <Text color="text" fontSize="13px" minH="120px">
             {description}
