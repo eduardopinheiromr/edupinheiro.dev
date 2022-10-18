@@ -1,17 +1,20 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle, theme } from "@styles/GlobalStyle";
 
-import theme from "../theme";
-import { AppProps } from "next/app";
+import "@styles/custom-bootstrap.scss";
+import "@styles/fontawesome.scss";
+import "@styles/vertical-timeline.scss";
 
-import "@fontsource/work-sans";
-import "@fontsource/fira-code";
-
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  );
+if (typeof window !== "undefined") {
+  require("bootstrap/dist/js/bootstrap.bundle");
 }
 
-export default MyApp;
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+}
