@@ -1,13 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 const Mailjet = require("node-mailjet");
 
-const mailjet = Mailjet.apiConnect(
+const mailjet = Mailjet.connect(
     process.env.MAILJET_API_KEY,
     process.env.MAILJET_API_SECRET,
-    {
-      config: {},
-      options: {}
-    } 
 );
 
 type Data = {
@@ -45,11 +41,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
         Subject: "Contato via site :D",
         TextPart: "Um email que você tem que abrir",
         HTMLPart: generateHTML(req),
-        CustomID: "AppGettingStartedTest",
       },
     ],
   });
-  res.status(200).json({ status: "SENT" });
+  res.status(200).json({ status: "SENT", response: response.body });
 };
 
 export default handler;
