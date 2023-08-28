@@ -1,10 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 const Mailjet = require("node-mailjet");
 
-const mailjet = new Mailjet({
-  apiKey: process.env.MAILJET_API_KEY,
-  apiSecret: process.env.MAILJET_API_SECRET,
-});
+const mailjet = Mailjet.apiConnect(
+    process.env.MAILJET_API_KEY,
+    process.env.MAILJET_API_SECRET,
+    {
+      config: {},
+      options: {}
+    } 
+);
 
 type Data = {
   status: string;
